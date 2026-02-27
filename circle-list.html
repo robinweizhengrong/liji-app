@@ -34,6 +34,11 @@
         .post-footer { display: flex; gap: 20px; padding-top: 12px; border-top: 1px solid #f5f5f5; }
         .post-action { display: flex; align-items: center; gap: 5px; font-size: 14px; color: #666; cursor: pointer; }
         .fab { position: fixed; bottom: 80px; right: 20px; width: 56px; height: 56px; background: #5a6c7d; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 28px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); cursor: pointer; }
+        .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; padding: 8px 0; border-top: 1px solid #eee; display: flex; justify-content: space-around; }
+        .nav-item { text-align: center; font-size: 12px; color: #999; cursor: pointer; }
+        .nav-item.active { color: #5a6c7d; }
+        .nav-icon { font-size: 24px; margin-bottom: 2px; }
+        .load-more { text-align: center; padding: 20px; color: #999; font-size: 14px; }
     </style>
 </head>
 <body>
@@ -42,52 +47,1035 @@
     </div>
     
     <div class="filter-bar">
-        <div class="filter-item active">全部地区</div>
-        <div class="filter-item">📍 成都</div>
-        <div class="filter-item">📍 绵阳</div>
-        <div class="filter-item">📍 达州</div>
-        <div class="filter-item">📍 南充</div>
-        <div class="filter-item">📍 泸州</div>
+        <div class="filter-item active" onclick="filterCity(this, 'all')">全部地区</div>
+        <div class="filter-item" onclick="filterCity(this, 'chengdu')">📍 成都</div>
+        <div class="filter-item" onclick="filterCity(this, 'mianyang')">📍 绵阳</div>
+        <div class="filter-item" onclick="filterCity(this, 'dazhou')">📍 达州</div>
+        <div class="filter-item" onclick="filterCity(this, 'nanchong')">📍 南充</div>
+        <div class="filter-item" onclick="filterCity(this, 'luzhou')">📍 泸州</div>
     </div>
     
     <div class="tabs">
-        <div class="tab active">推荐</div>
-        <div class="tab">关注</div>
-        <div class="tab">最新</div>
-        <div class="tab">同城</div>
+        <div class="tab active" onclick="switchTab(this, 'recommend')">推荐</div>
+        <div class="tab" onclick="switchTab(this, 'following')">关注</div>
+        <div class="tab" onclick="switchTab(this, 'latest')">最新</div>
+        <div class="tab" onclick="switchTab(this, 'nearby')">同城</div>
     </div>
     
-    <div class="post-list">
-        <div class="post-card" onclick="location.href='post-detail.html?id=post001&user=lj_001'">
+    <div class="post-list" id="postList">
+        
+        <div class="post-card" onclick="goToDetail('post001', 'lj_001')">
             <div class="post-header">
-                <div class="post-avatar">张</div>
+                <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">张</div>
                 <div class="post-user">
                     <div class="post-name-row">
                         <span class="post-name">张明</span>
-                        <span class="post-badge">资深策划师</span>
+                        <span class="post-badge">策划师</span>
                     </div>
-                    <div class="post-meta">2小时前 · 成都市 · lj_001</div>
+                    <div class="post-meta">3小时前 · 成都市 · lj_001</div>
                 </div>
-                <div class="follow-btn">+关注</div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注张明')">+关注</div>
             </div>
-            <div class="post-content">分享今日告别仪式策划案例...🙏</div>
-            
+            <div class="post-content">分享一个温馨的策划案例，为老人安排了喜爱的音乐和鲜花，家属感动落泪。✨</div>
             <div class="post-images">
                 <div class="post-img">🕯️</div>
                 <div class="post-img">🌸</div>
                 <div class="post-img">⚰️</div>
             </div>
-            
             <div class="post-location">📍 四川省 成都市</div>
-            
             <div class="post-footer">
-                <div class="post-action"><span>👍</span> <span>266</span></div>
-                <div class="post-action"><span>💬</span> <span>28</span></div>
-                <div class="post-action"><span>↗️</span> <span>分享</span></div>
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>211</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post001', 'lj_001')">
+                    <span>💬</span> <span>35</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
             </div>
         </div>
+    
+        <div class="post-card" onclick="goToDetail('post002', 'lj_001')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">张</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">张明</span>
+                        <span class="post-badge">策划师</span>
+                    </div>
+                    <div class="post-meta">昨天 · 成都市 · lj_001</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注张明')">+关注</div>
+            </div>
+            <div class="post-content">分享一个温馨的策划案例，为老人安排了喜爱的音乐和鲜花，家属感动落泪。</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 成都市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>121</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post002', 'lj_001')">
+                    <span>💬</span> <span>23</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post003', 'lj_002')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">李</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">李华</span>
+                        <span class="post-badge">策划师</span>
+                    </div>
+                    <div class="post-meta">3小时前 · 成都市 · lj_002</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注李华')">+关注</div>
+            </div>
+            <div class="post-content">专业策划，贴心服务。今天又收到家属的感谢信，这是对我们最大的肯定。🙏</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 成都市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>404</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post003', 'lj_002')">
+                    <span>💬</span> <span>9</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post004', 'lj_002')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">李</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">李华</span>
+                        <span class="post-badge">策划师</span>
+                    </div>
+                    <div class="post-meta">5小时前 · 成都市 · lj_002</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注李华')">+关注</div>
+            </div>
+            <div class="post-content">今日策划的告别仪式圆满结束，家属非常满意。用心策划每一个环节，让逝者安息，让生者慰藉。✨</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 成都市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>133</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post004', 'lj_002')">
+                    <span>💬</span> <span>22</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post005', 'lj_002')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">李</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">李华</span>
+                        <span class="post-badge">策划师</span>
+                    </div>
+                    <div class="post-meta">1小时前 · 成都市 · lj_002</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注李华')">+关注</div>
+            </div>
+            <div class="post-content">分享一个温馨的策划案例，为老人安排了喜爱的音乐和鲜花，家属感动落泪。🙏</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 成都市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>245</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post005', 'lj_002')">
+                    <span>💬</span> <span>8</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post006', 'lj_003')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">王</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">王芳</span>
+                        <span class="post-badge">策划师</span>
+                    </div>
+                    <div class="post-meta">2小时前 · 绵阳市 · lj_003</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注王芳')">+关注</div>
+            </div>
+            <div class="post-content">传统与现代结合的告别仪式，既尊重习俗又体现个性，家属评价很高。🕯️</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 绵阳市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>479</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post006', 'lj_003')">
+                    <span>💬</span> <span>17</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post007', 'lj_003')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">王</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">王芳</span>
+                        <span class="post-badge">策划师</span>
+                    </div>
+                    <div class="post-meta">3小时前 · 绵阳市 · lj_003</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注王芳')">+关注</div>
+            </div>
+            <div class="post-content">今日策划的告别仪式圆满结束，家属非常满意。用心策划每一个环节，让逝者安息，让生者慰藉。✨</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 绵阳市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>376</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post007', 'lj_003')">
+                    <span>💬</span> <span>33</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post008', 'lj_004')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">刘</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">刘强</span>
+                        <span class="post-badge">策划师</span>
+                    </div>
+                    <div class="post-meta">5小时前 · 达州市 · lj_004</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注刘强')">+关注</div>
+            </div>
+            <div class="post-content">今日策划的告别仪式圆满结束，家属非常满意。用心策划每一个环节，让逝者安息，让生者慰藉。🌸</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 达州市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>188</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post008', 'lj_004')">
+                    <span>💬</span> <span>28</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post009', 'lj_004')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">刘</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">刘强</span>
+                        <span class="post-badge">策划师</span>
+                    </div>
+                    <div class="post-meta">2天前 · 达州市 · lj_004</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注刘强')">+关注</div>
+            </div>
+            <div class="post-content">专业策划，贴心服务。今天又收到家属的感谢信，这是对我们最大的肯定。🌸</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 达州市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>165</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post009', 'lj_004')">
+                    <span>💬</span> <span>37</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post010', 'lj_005')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">陈</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">陈静</span>
+                        <span class="post-badge">策划师</span>
+                    </div>
+                    <div class="post-meta">2天前 · 南充市 · lj_005</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注陈静')">+关注</div>
+            </div>
+            <div class="post-content">今日策划的告别仪式圆满结束，家属非常满意。用心策划每一个环节，让逝者安息，让生者慰藉。🌹</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 南充市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>471</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post010', 'lj_005')">
+                    <span>💬</span> <span>29</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post011', 'lj_005')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">陈</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">陈静</span>
+                        <span class="post-badge">策划师</span>
+                    </div>
+                    <div class="post-meta">2天前 · 南充市 · lj_005</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注陈静')">+关注</div>
+            </div>
+            <div class="post-content">分享一个温馨的策划案例，为老人安排了喜爱的音乐和鲜花，家属感动落泪。🌸</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 南充市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>434</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post011', 'lj_005')">
+                    <span>💬</span> <span>40</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post012', 'lj_006')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">赵</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">赵伟</span>
+                        <span class="post-badge">策划师</span>
+                    </div>
+                    <div class="post-meta">3小时前 · 泸州市 · lj_006</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注赵伟')">+关注</div>
+            </div>
+            <div class="post-content">今日策划的告别仪式圆满结束，家属非常满意。用心策划每一个环节，让逝者安息，让生者慰藉。💐</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 泸州市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>134</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post012', 'lj_006')">
+                    <span>💬</span> <span>32</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post013', 'lj_006')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">赵</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">赵伟</span>
+                        <span class="post-badge">策划师</span>
+                    </div>
+                    <div class="post-meta">5小时前 · 泸州市 · lj_006</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注赵伟')">+关注</div>
+            </div>
+            <div class="post-content">专业策划，贴心服务。今天又收到家属的感谢信，这是对我们最大的肯定。🕯️</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 泸州市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>491</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post013', 'lj_006')">
+                    <span>💬</span> <span>32</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post014', 'lj_007')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">孙</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">孙丽</span>
+                        <span class="post-badge">策划师</span>
+                    </div>
+                    <div class="post-meta">1小时前 · 德阳市 · lj_007</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注孙丽')">+关注</div>
+            </div>
+            <div class="post-content">专业策划，贴心服务。今天又收到家属的感谢信，这是对我们最大的肯定。💐</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 德阳市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>163</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post014', 'lj_007')">
+                    <span>💬</span> <span>35</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post015', 'lj_007')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">孙</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">孙丽</span>
+                        <span class="post-badge">策划师</span>
+                    </div>
+                    <div class="post-meta">5小时前 · 德阳市 · lj_007</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注孙丽')">+关注</div>
+            </div>
+            <div class="post-content">今日策划的告别仪式圆满结束，家属非常满意。用心策划每一个环节，让逝者安息，让生者慰藉。🌹</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 德阳市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>83</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post015', 'lj_007')">
+                    <span>💬</span> <span>21</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post016', 'lj_007')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">孙</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">孙丽</span>
+                        <span class="post-badge">策划师</span>
+                    </div>
+                    <div class="post-meta">3小时前 · 德阳市 · lj_007</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注孙丽')">+关注</div>
+            </div>
+            <div class="post-content">传统与现代结合的告别仪式，既尊重习俗又体现个性，家属评价很高。</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 德阳市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>231</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post016', 'lj_007')">
+                    <span>💬</span> <span>25</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post017', 'lj_008')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">周</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">周强</span>
+                        <span class="post-badge">策划师</span>
+                    </div>
+                    <div class="post-meta">3小时前 · 广元市 · lj_008</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注周强')">+关注</div>
+            </div>
+            <div class="post-content">传统与现代结合的告别仪式，既尊重习俗又体现个性，家属评价很高。💐</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 广元市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>348</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post017', 'lj_008')">
+                    <span>💬</span> <span>46</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post018', 'lj_008')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">周</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">周强</span>
+                        <span class="post-badge">策划师</span>
+                    </div>
+                    <div class="post-meta">3小时前 · 广元市 · lj_008</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注周强')">+关注</div>
+            </div>
+            <div class="post-content">传统与现代结合的告别仪式，既尊重习俗又体现个性，家属评价很高。🕯️</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 广元市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>426</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post018', 'lj_008')">
+                    <span>💬</span> <span>43</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post019', 'lj_009')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">吴</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">吴敏</span>
+                        <span class="post-badge">策划师</span>
+                    </div>
+                    <div class="post-meta">2小时前 · 内江市 · lj_009</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注吴敏')">+关注</div>
+            </div>
+            <div class="post-content">专业策划，贴心服务。今天又收到家属的感谢信，这是对我们最大的肯定。🙏</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 内江市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>491</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post019', 'lj_009')">
+                    <span>💬</span> <span>47</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post020', 'lj_009')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">吴</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">吴敏</span>
+                        <span class="post-badge">策划师</span>
+                    </div>
+                    <div class="post-meta">5小时前 · 内江市 · lj_009</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注吴敏')">+关注</div>
+            </div>
+            <div class="post-content">分享一个温馨的策划案例，为老人安排了喜爱的音乐和鲜花，家属感动落泪。🌹</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 内江市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>443</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post020', 'lj_009')">
+                    <span>💬</span> <span>22</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post021', 'lj_010')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">郑</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">郑杰</span>
+                        <span class="post-badge">策划师</span>
+                    </div>
+                    <div class="post-meta">昨天 · 乐山市 · lj_010</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注郑杰')">+关注</div>
+            </div>
+            <div class="post-content">传统与现代结合的告别仪式，既尊重习俗又体现个性，家属评价很高。🌸</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 乐山市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>181</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post021', 'lj_010')">
+                    <span>💬</span> <span>10</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post022', 'lj_010')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">郑</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">郑杰</span>
+                        <span class="post-badge">策划师</span>
+                    </div>
+                    <div class="post-meta">昨天 · 乐山市 · lj_010</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注郑杰')">+关注</div>
+            </div>
+            <div class="post-content">专业策划，贴心服务。今天又收到家属的感谢信，这是对我们最大的肯定。❤️</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 乐山市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>289</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post022', 'lj_010')">
+                    <span>💬</span> <span>15</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post023', 'lj_011')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">林</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">林娜</span>
+                        <span class="post-badge">主持人</span>
+                    </div>
+                    <div class="post-meta">1小时前 · 成都市 · lj_011</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注林娜')">+关注</div>
+            </div>
+            <div class="post-content">专业主持，庄重得体。感谢家属的信任，我会继续用心服务每一位客户。</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 成都市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>317</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post023', 'lj_011')">
+                    <span>💬</span> <span>14</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post024', 'lj_011')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">林</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">林娜</span>
+                        <span class="post-badge">主持人</span>
+                    </div>
+                    <div class="post-meta">5小时前 · 成都市 · lj_011</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注林娜')">+关注</div>
+            </div>
+            <div class="post-content">用心主持每一场告别，用语言传递温暖与力量。家属的认可是我前进的动力。💐</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 成都市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>107</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post024', 'lj_011')">
+                    <span>💬</span> <span>13</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post025', 'lj_011')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">林</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">林娜</span>
+                        <span class="post-badge">主持人</span>
+                    </div>
+                    <div class="post-meta">1小时前 · 成都市 · lj_011</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注林娜')">+关注</div>
+            </div>
+            <div class="post-content">分享今日主持感悟：仪式感让告别更有尊严，让思念更有寄托。🌸</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 成都市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>195</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post025', 'lj_011')">
+                    <span>💬</span> <span>46</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post026', 'lj_012')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">黄</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">黄伟</span>
+                        <span class="post-badge">主持人</span>
+                    </div>
+                    <div class="post-meta">昨天 · 成都市 · lj_012</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注黄伟')">+关注</div>
+            </div>
+            <div class="post-content">专业主持，庄重得体。感谢家属的信任，我会继续用心服务每一位客户。❤️</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 成都市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>173</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post026', 'lj_012')">
+                    <span>💬</span> <span>19</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post027', 'lj_012')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">黄</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">黄伟</span>
+                        <span class="post-badge">主持人</span>
+                    </div>
+                    <div class="post-meta">1小时前 · 成都市 · lj_012</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注黄伟')">+关注</div>
+            </div>
+            <div class="post-content">今天的仪式主持顺利完成，声音温暖，流程顺畅。愿逝者安息。💐</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 成都市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>449</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post027', 'lj_012')">
+                    <span>💬</span> <span>34</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post028', 'lj_012')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">黄</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">黄伟</span>
+                        <span class="post-badge">主持人</span>
+                    </div>
+                    <div class="post-meta">1小时前 · 成都市 · lj_012</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注黄伟')">+关注</div>
+            </div>
+            <div class="post-content">分享今日主持感悟：仪式感让告别更有尊严，让思念更有寄托。🌹</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 成都市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>483</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post028', 'lj_012')">
+                    <span>💬</span> <span>26</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post029', 'lj_013')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">杨</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">杨帆</span>
+                        <span class="post-badge">主持人</span>
+                    </div>
+                    <div class="post-meta">5小时前 · 绵阳市 · lj_013</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注杨帆')">+关注</div>
+            </div>
+            <div class="post-content">用心主持每一场告别，用语言传递温暖与力量。家属的认可是我前进的动力。❤️</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 绵阳市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>474</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post029', 'lj_013')">
+                    <span>💬</span> <span>8</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-card" onclick="goToDetail('post030', 'lj_013')">
+            <div class="post-header">
+                <div class="post-avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">杨</div>
+                <div class="post-user">
+                    <div class="post-name-row">
+                        <span class="post-name">杨帆</span>
+                        <span class="post-badge">主持人</span>
+                    </div>
+                    <div class="post-meta">2小时前 · 绵阳市 · lj_013</div>
+                </div>
+                <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注杨帆')">+关注</div>
+            </div>
+            <div class="post-content">专业主持，庄重得体。感谢家属的信任，我会继续用心服务每一位客户。💐</div>
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            <div class="post-location">📍 四川省 绵阳市</div>
+            <div class="post-footer">
+                <div class="post-action" onclick="event.stopPropagation(); toggleLike(this)">
+                    <span>👍</span> <span>158</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); goToDetail('post030', 'lj_013')">
+                    <span>💬</span> <span>46</span>
+                </div>
+                <div class="post-action" onclick="event.stopPropagation(); alert('分享成功')">
+                    <span>↗️</span> <span>分享</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="load-more">加载更多...</div>
     </div>
     
     <div class="fab" onclick="location.href='create-post.html'">+</div>
+    
+    <div class="bottom-nav">
+        <div class="nav-item" onclick="location.href='index.html'">
+            <div class="nav-icon">📅</div>
+            <div>档期</div>
+        </div>
+        <div class="nav-item" onclick="location.href='planner-list.html'">
+            <div class="nav-icon">🔥</div>
+            <div>服务</div>
+        </div>
+        <div class="nav-item active">
+            <div class="nav-icon">💬</div>
+            <div>礼仪圈</div>
+        </div>
+        <div class="nav-item" onclick="location.href='my-orders.html'">
+            <div class="nav-icon">👤</div>
+            <div>我的</div>
+        </div>
+    </div>
+    
+    <script>
+        function filterCity(element, city) {
+            document.querySelectorAll('.filter-item').forEach(item => item.classList.remove('active'));
+            element.classList.add('active');
+            console.log('筛选地区:', city);
+        }
+        
+        function switchTab(element, tab) {
+            document.querySelectorAll('.tab').forEach(item => item.classList.remove('active'));
+            element.classList.add('active');
+            console.log('切换标签:', tab);
+        }
+        
+        function goToDetail(postId, userId) {
+            location.href = 'post-detail.html?id=' + postId + '&user=' + userId;
+        }
+        
+        function toggleLike(element) {
+            const countSpan = element.querySelector('span:last-child');
+            let count = parseInt(countSpan.textContent);
+            if (element.style.color === 'rgb(231, 76, 60)') {
+                element.style.color = '#666';
+                countSpan.textContent = count - 1;
+            } else {
+                element.style.color = '#e74c3c';
+                countSpan.textContent = count + 1;
+            }
+        }
+    </script>
 </body>
 </html>
