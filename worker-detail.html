@@ -1,9 +1,185 @@
 <!DOCTYPE html>
-<html><head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<title>服务人员详情 - 礼纪</title>
-</head><body>
-<h1>服务人员详情</h1>
-<p>页面开发中...</p>
-</body></html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务人员详情 - 礼纪</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, sans-serif; background: #f5f5f5; padding-bottom: 80px; }
+        .header { background: #fff; padding: 12px 15px; display: flex; align-items: center; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
+        .back { font-size: 20px; margin-right: 10px; text-decoration: none; color: #333; cursor: pointer; }
+        .title { flex: 1; text-align: center; font-size: 17px; font-weight: 600; }
+        .share { font-size: 20px; }
+        
+        .profile-section { background: #fff; padding: 20px; text-align: center; }
+        .profile-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 32px; font-weight: 600; }
+        .profile-name { font-size: 20px; font-weight: 600; margin-bottom: 5px; }
+        .profile-title { color: #5a6c7d; font-size: 14px; margin-bottom: 10px; }
+        .profile-tags { display: flex; justify-content: center; gap: 8px; margin-bottom: 15px; }
+        .profile-tag { font-size: 12px; padding: 4px 10px; background: #f0f7ff; color: #5a6c7d; border-radius: 12px; }
+        .profile-stats { display: flex; justify-content: center; gap: 30px; }
+        .stat-item { text-align: center; }
+        .stat-num { font-size: 20px; font-weight: 600; color: #333; }
+        .stat-label { font-size: 12px; color: #999; }
+        
+        .action-btns { display: flex; gap: 10px; padding: 15px; background: #fff; border-top: 1px solid #eee; }
+        .btn-primary { flex: 1; padding: 12px; background: #5a6c7d; color: #fff; border-radius: 25px; text-align: center; font-size: 15px; cursor: pointer; }
+        .btn-secondary { flex: 1; padding: 12px; background: #f5f5f5; color: #333; border-radius: 25px; text-align: center; font-size: 15px; cursor: pointer; }
+        
+        .section { background: #fff; margin-top: 10px; padding: 15px; }
+        .section-title { font-size: 16px; font-weight: 600; margin-bottom: 12px; }
+        .section-content { font-size: 14px; color: #666; line-height: 1.6; }
+        
+        .works-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+        .work-item { aspect-ratio: 1; background: #e8e8e8; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 24px; }
+        
+        .reviews-list { margin-top: 10px; }
+        .review-item { padding: 12px 0; border-bottom: 1px solid #f5f5f5; }
+        .review-header { display: flex; align-items: center; margin-bottom: 8px; }
+        .review-avatar { width: 32px; height: 32px; border-radius: 50%; background: #e8e8e8; margin-right: 10px; }
+        .review-name { flex: 1; font-size: 14px; }
+        .review-rating { color: #f39c12; }
+        .review-content { font-size: 13px; color: #666; line-height: 1.5; }
+        .review-date { font-size: 11px; color: #999; margin-top: 5px; }
+        
+        .price-section { background: #fff; padding: 15px; margin-top: 10px; }
+        .price-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f5f5f5; }
+        .price-label { font-size: 14px; color: #666; }
+        .price-value { font-size: 16px; color: #e74c3c; font-weight: 600; }
+        
+        .bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; padding: 10px 15px; border-top: 1px solid #eee; display: flex; gap: 10px; max-width: 430px; margin: 0 auto; }
+        .btn-chat { padding: 12px 20px; background: #f5f5f5; border-radius: 25px; text-align: center; }
+        .btn-book { flex: 1; padding: 12px; background: #5a6c7d; color: #fff; border-radius: 25px; text-align: center; font-size: 15px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <span class="back" onclick="history.back()">←</span>
+        <span class="title">详情</span>
+        <span class="share">⋮</span>
+    </div>
+    
+    <div class="profile-section">
+        <div class="profile-avatar" id="workerAvatar">张</div>
+        <div class="profile-name" id="workerName">张明</div>
+        <div class="profile-title">资深策划师 · 10年经验</div>
+        <div class="profile-tags">
+            <span class="profile-tag">实名认证</span>
+            <span class="profile-tag">金牌服务</span>
+            <span class="profile-tag">好评率98%</span>
+        </div>
+        <div class="profile-stats">
+            <div class="stat-item">
+                <div class="stat-num">128</div>
+                <div class="stat-label">服务单数</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">4.9</div>
+                <div class="stat-label">评分</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">10年</div>
+                <div class="stat-label">从业经验</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-title">个人简介</div>
+        <div class="section-content">
+            资深殡葬策划师，10年从业经验，擅长传统与现代结合的告别仪式策划。服务过上千个家庭，用心为每一个家庭提供温暖的告别仪式。熟悉各类宗教仪式和风俗习惯，能够根据家属需求定制个性化方案。
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-title">服务地区</div>
+        <div class="section-content">
+            主要服务成都市及周边地区，可提供上门服务。其他地区可协商。
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-title">作品展示</div>
+        <div class="works-grid">
+            <div class="work-item">🕯️</div>
+            <div class="work-item">🌸</div>
+            <div class="work-item">⚰️</div>
+            <div class="work-item">🕯️</div>
+            <div class="work-item">🌸</div>
+            <div class="work-item">⚰️</div>
+        </div>
+    </div>
+    
+    <div class="price-section">
+        <div class="section-title">服务价格</div>
+        <div class="price-item">
+            <span class="price-label">基础策划服务</span>
+            <span class="price-value">¥800起</span>
+        </div>
+        <div class="price-item">
+            <span class="price-label">标准策划服务</span>
+            <span class="price-value">¥1500起</span>
+        </div>
+        <div class="price-item">
+            <span class="price-label">高端定制服务</span>
+            <span class="price-value">¥3000起</span>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-title">用户评价（128条）</div>
+        <div class="reviews-list">
+            <div class="review-item">
+                <div class="review-header">
+                    <div class="review-avatar"></div>
+                    <div class="review-name">张先生</div>
+                    <div class="review-rating">★★★★★</div>
+                </div>
+                <div class="review-content">服务非常专业，态度很好，整个告别仪式安排得很周到，家属都很满意。</div>
+                <div class="review-date">2026-02-20</div>
+            </div>
+            
+            <div class="review-item">
+                <div class="review-header">
+                    <div class="review-avatar"></div>
+                    <div class="review-name">李女士</div>
+                    <div class="review-rating">★★★★★</div>
+                </div>
+                <div class="review-content">很细心的策划师，考虑到了很多我们没有想到的细节，非常感谢。</div>
+                <div class="review-date">2026-02-15</div>
+            </div>
+            
+            <div class="review-item">
+                <div class="review-header">
+                    <div class="review-avatar"></div>
+                    <div class="review-name">王先生</div>
+                    <div class="review-rating">★★★★☆</div>
+                </div>
+                <div class="review-content">整体服务不错，价格也比较合理，推荐！</div>
+                <div class="review-date">2026-02-10</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bottom-bar">
+        <div class="btn-chat">💬 咨询</div>
+        <div class="btn-book">立即预约</div>
+    </div>
+    
+    <script>
+        // 获取URL参数
+        function getUrlParam(name) {
+            const params = new URLSearchParams(window.location.search);
+            return params.get(name);
+        }
+        
+        // 根据ID加载不同人员数据（简化版）
+        const workerId = getUrlParam('id');
+        if (workerId) {
+            console.log('加载人员ID:', workerId);
+            // 这里可以根据ID加载不同人员的数据
+        }
+    </script>
+</body>
+</html>
