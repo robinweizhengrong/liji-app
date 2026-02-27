@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>礼仪圈 - 礼纪</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, sans-serif; background: #f5f5f5; }
+        .header { background: #fff; padding: 12px 15px; text-align: center; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
+        .header-title { font-size: 17px; font-weight: 600; }
+        .tabs { display: flex; background: #fff; border-bottom: 1px solid #f0f0f0; }
+        .tab { flex: 1; text-align: center; padding: 12px; font-size: 14px; color: #666; position: relative; }
+        .tab.active { color: #5a6c7d; font-weight: 600; }
+        .tab.active::after { content: ''; position: absolute; bottom: 0; left: 30%; right: 30%; height: 2px; background: #5a6c7d; }
+        .post-list { padding: 10px; }
+        .post-card { background: #fff; border-radius: 12px; padding: 15px; margin-bottom: 10px; }
+        .post-header { display: flex; align-items: center; margin-bottom: 12px; }
+        .post-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); margin-right: 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; font-weight: 600; }
+        .post-user { flex: 1; }
+        .post-name { font-size: 15px; font-weight: 600; }
+        .post-meta { font-size: 12px; color: #999; margin-top: 2px; }
+        .post-badge { font-size: 11px; padding: 2px 6px; background: #f0f7ff; color: #5a6c7d; border-radius: 3px; margin-left: 8px; }
+        .follow-btn { padding: 6px 14px; background: #5a6c7d; color: #fff; border-radius: 15px; font-size: 13px; }
+        .post-content { font-size: 15px; line-height: 1.7; color: #333; margin-bottom: 12px; }
+        .post-images { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+        .post-img { aspect-ratio: 1; background: #e8e8e8; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 32px; }
+        .post-location { font-size: 12px; color: #5a6c7d; margin-bottom: 12px; }
+        .post-footer { display: flex; gap: 20px; padding-top: 12px; border-top: 1px solid #f5f5f5; }
+        .post-action { display: flex; align-items: center; gap: 5px; font-size: 14px; color: #666; }
+        .fab { position: fixed; bottom: 80px; right: 20px; width: 56px; height: 56px; background: #5a6c7d; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 28px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-title">礼仪圈</div>
+    </div>
+    
+    <div class="tabs">
+        <div class="tab active">推荐</div>
+        <div class="tab">关注</div>
+        <div class="tab">最新</div>
+        <div class="tab">同城</div>
+    </div>
+    
+    <div class="post-list">
+        <!-- 帖子1：张明（策划师lj_001） -->
+        <div class="post-card" onclick="location.href='post-detail.html?id=post001&amp;user=lj_001'">
+            <div class="post-header">
+                <div class="post-avatar">张</div>
+                <div class="post-user">
+                    <div style="display:flex;align-items:center;">
+                        <span class="post-name">张明</span>
+                        <span class="post-badge">资深策划师</span>
+                    </div>
+                    <div class="post-meta">2小时前 · 成都市</div>
+                </div>
+                <div class="follow-btn">+关注</div>
+            </div>
+            <div class="post-content">
+                分享今日告别仪式策划案例，家属对流程安排非常满意。从接待到送别，每一个环节都用心准备，让逝者安息，让生者慰藉。感谢家属的信任，这也是我们最大的动力。🙏
+            </div>
+            
+            <div class="post-images">
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            
+            <div class="post-location">📍 四川省 成都市</div>
+            
+            <div class="post-footer">
+                <span class="post-action">👁 4566</span>
+                <span class="post-action">💬 28</span>
+                <span class="post-action">👍 266</span>
+                <span class="post-action">↗️ 分享</span>
+            </div>
+        </div>
+        
+        <!-- 帖子2：林娜（主持人lj_011） -->
+        <div class="post-card" onclick="location.href='post-detail.html?id=post002&amp;user=lj_011'">
+            <div class="post-header">
+                <div class="post-avatar" style="background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%);">林</div>
+                <div class="post-user">
+                    <div style="display:flex;align-items:center;">
+                        <span class="post-name">林娜</span>
+                        <span class="post-badge">一级主持人</span>
+                    </div>
+                    <div class="post-meta">4小时前 · 成都市</div>
+                </div>
+                <div class="follow-btn">+关注</div>
+            </div>
+            <div class="post-content">
+                今天的告别仪式圆满结束，感谢家属的配合与信任。声音温暖，主持经验丰富，用心主持每一场仪式。🎤<br><br>
+                #主持人 #告别仪式 #专业服务
+            </div>
+            
+            <div class="post-images">
+                <div class="post-img">🎤</div>
+                <div class="post-img">🕯️</div>
+                <div class="post-img">🌹</div>
+            </div>
+            
+            <div class="post-location">📍 四川省 成都市</div>
+            
+            <div class="post-footer">
+                <span class="post-action">👁 3289</span>
+                <span class="post-action">💬 45</span>
+                <span class="post-action">👍 189</span>
+                <span class="post-action">↗️ 分享</span>
+            </div>
+        </div>
+        
+        <!-- 帖子3：王芳（礼仪师lj_021） -->
+        <div class="post-card" onclick="location.href='post-detail.html?id=post003&amp;user=lj_021'">
+            <div class="post-header">
+                <div class="post-avatar" style="background:linear-gradient(135deg,#4facfe 0%,#00f2fe 100%);">王</div>
+                <div class="post-user">
+                    <div style="display:flex;align-items:center;">
+                        <span class="post-name">王芳</span>
+                        <span class="post-badge">高级礼仪师</span>
+                    </div>
+                    <div class="post-meta">6小时前 · 绵阳市</div>
+                </div>
+                <div class="follow-btn">+关注</div>
+            </div>
+            <div class="post-content">
+                礼仪服务不仅仅是流程的执行，更是对逝者的尊重和对生者的慰藉。每一个细节都用心准备，只为让告别更加温馨。🌸
+            </div>
+            
+            <div class="post-images">
+                <div class="post-img">🌸</div>
+                <div class="post-img">⚰️</div>
+            </div>
+            
+            <div class="post-location">📍 四川省 绵阳市</div>
+            
+            <div class="post-footer">
+                <span class="post-action">👁 2156</span>
+                <span class="post-action">💬 32</span>
+                <span class="post-action">👍 156</span>
+                <span class="post-action">↗️ 分享</span>
+            </div>
+        </div>
+        
+        <!-- 帖子4：田静（花艺师lj_041） -->
+        <div class="post-card" onclick="location.href='post-detail.html?id=post004&amp;user=lj_041'">
+            <div class="post-header">
+                <div class="post-avatar" style="background:linear-gradient(135deg,#43e97b 0%,#38f9d7 100%);">田</div>
+                <div class="post-user">
+                    <div style="display:flex;align-items:center;">
+                        <span class="post-name">田静</span>
+                        <span class="post-badge">花艺师</span>
+                    </div>
+                    <div class="post-meta">8小时前 · 成都市</div>
+                </div>
+                <div class="follow-btn">+关注</div>
+            </div>
+            <div class="post-content">
+                今日花艺作品分享，白菊与百合的搭配，寓意纯洁与怀念。每一束花都是用心设计，愿逝者安息。🌼<br>>
+                
+            </div>
+            
+            <div class="post-images">
+                <div class="post-img">🌼</div>
+                <div class="post-img">🌸</div>
+                <div class="post-img">💐</div>
+            </div>
+            
+            <div class="post-location">📍 四川省 成都市</div>
+            
+            <div class="post-footer">
+                <span class="post-action">👁 1876</span>
+                <span class="post-action">💬 24</span>
+                <span class="post-action">👍 234</span>
+                <span class="post-action">↗️ 分享</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="fab" onclick="location.href='create-post.html'">+</div>
+</body>
+</html>
