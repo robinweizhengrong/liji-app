@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>预约服务 - 礼纪</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, sans-serif; background: #f5f5f5; padding-bottom: 80px; }
+        .header { background: #fff; padding: 12px 15px; display: flex; align-items: center; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
+        .back { font-size: 20px; margin-right: 10px; cursor: pointer; }
+        .title { flex: 1; text-align: center; font-size: 17px; font-weight: 600; }
+        
+        .worker-section { background: #fff; padding: 20px; display: flex; gap: 15px; border-bottom: 1px solid #f0f0f0; }
+        .worker-avatar { width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 28px; font-weight: 600; }
+        .worker-info { flex: 1; }
+        .worker-name { font-size: 18px; font-weight: 600; margin-bottom: 5px; }
+        .worker-title { font-size: 14px; color: #5a6c7d; margin-bottom: 5px; }
+        .worker-price { font-size: 16px; color: #e74c3c; font-weight: 600; }
+        
+        .form-section { background: #fff; margin-top: 10px; padding: 15px; }
+        .form-title { font-size: 16px; font-weight: 600; margin-bottom: 15px; }
+        .form-item { margin-bottom: 20px; }
+        .form-label { font-size: 14px; color: #666; margin-bottom: 8px; display: block; }
+        .form-input { width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; }
+        .form-textarea { width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; height: 100px; resize: none; }
+        
+        .service-types { display: flex; gap: 10px; flex-wrap: wrap; }
+        .service-type { padding: 10px 20px; background: #f5f5f5; border-radius: 20px; font-size: 14px; color: #666; cursor: pointer; }
+        .service-type.active { background: #5a6c7d; color: #fff; }
+        
+        .date-selector { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 5px; }
+        .date-item { min-width: 60px; padding: 10px; background: #f5f5f5; border-radius: 8px; text-align: center; cursor: pointer; }
+        .date-item.active { background: #5a6c7d; color: #fff; }
+        .date-day { font-size: 12px; }
+        .date-num { font-size: 18px; font-weight: 600; }
+        
+        .time-selector { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        .time-item { padding: 10px; background: #f5f5f5; border-radius: 8px; text-align: center; font-size: 14px; cursor: pointer; }
+        .time-item.active { background: #5a6c7d; color: #fff; }
+        .time-item.disabled { background: #eee; color: #999; }
+        
+        .bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; padding: 10px 15px; border-top: 1px solid #eee; display: flex; gap: 10px; align-items: center; }
+        .price-info { flex: 1; }
+        .price-label { font-size: 12px; color: #999; }
+        .price-value { font-size: 20px; color: #e74c3c; font-weight: 600; }
+        .submit-btn { padding: 12px 40px; background: #5a6c7d; color: #fff; border-radius: 25px; font-size: 16px; border: none; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <span class="back" onclick="history.back()">←</span>
+        <span class="title">预约服务</span>
+        <span style="width:30px;"></span>
+    </div>
+    
+    <div class="worker-section">
+        <div class="worker-avatar">张</div>
+        <div class="worker-info">
+            <div class="worker-name">张明</div>
+            <div class="worker-title">资深策划师 · 10年经验</div>
+            <div class="worker-price">¥800起</div>
+        </div>
+    </div>
+    
+    <div class="form-section">
+        <div class="form-title">选择服务类型</div>
+        <div class="service-types">
+            <div class="service-type active">基础策划</div>
+            <div class="service-type">标准策划</div>
+            <div class="service-type">高端定制</div>
+        </div>
+    </div>
+    
+    <div class="form-section">
+        <div class="form-title">选择日期</div>
+        <div class="date-selector">
+            <div class="date-item active">
+                <div class="date-day">今天</div>
+                <div class="date-num">27</div>
+            </div>
+            <div class="date-item">
+                <div class="date-day">明天</div>
+                <div class="date-num">28</div>
+            </div>
+            <div class="date-item">
+                <div class="date-day">周六</div>
+                <div class="date-num">01</div>
+            </div>
+            <div class="date-item">
+                <div class="date-day">周日</div>
+                <div class="date-num">02</div>
+            </div>
+            <div class="date-item">
+                <div class="date-day">周一</div>
+                <div class="date-num">03</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-section">
+        <div class="form-title">选择时间</div>
+        <div class="time-selector">
+            <div class="time-item">08:00</div>
+            <div class="time-item">09:00</div>
+            <div class="time-item active">10:00</div>
+            <div class="time-item">11:00</div>
+            <div class="time-item">14:00</div>
+            <div class="time-item">15:00</div>
+            <div class="time-item disabled">16:00</div>
+            <div class="time-item">17:00</div>
+        </div>
+    </div>
+    
+    <div class="form-section">
+        <div class="form-title">联系人信息</div>
+        
+        <div class="form-item">
+            <label class="form-label">联系人姓名</label>
+            <input type="text" class="form-input" placeholder="请输入联系人姓名">
+        </div>
+        
+        <div class="form-item">
+            <label class="form-label">联系电话</label>
+            <input type="tel" class="form-input" placeholder="请输入联系电话">
+        </div>
+        
+        <div class="form-item">
+            <label class="form-label">服务地址</label>
+            <input type="text" class="form-input" placeholder="请输入服务地址">
+        </div>
+        
+        <div class="form-item">
+            <label class="form-label">备注需求</label>
+            <textarea class="form-textarea" placeholder="请输入其他需求或备注信息"></textarea>
+        </div>
+    </div>
+    
+    <div class="bottom-bar">
+        <div class="price-info">
+            <div class="price-label">预估费用</div>
+            <div class="price-value">¥800</div>
+        </div>
+        <button class="submit-btn" onclick="submitBooking()">立即预约</button>
+    </div>
+    
+    <script>
+        // 选择服务类型
+        document.querySelectorAll('.service-type').forEach(item => {
+            item.onclick = function() {
+                document.querySelectorAll('.service-type').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+                updatePrice();
+            }
+        });
+        
+        // 选择日期
+        document.querySelectorAll('.date-item').forEach(item => {
+            item.onclick = function() {
+                document.querySelectorAll('.date-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            }
+        });
+        
+        // 选择时间
+        document.querySelectorAll('.time-item:not(.disabled)').forEach(item => {
+            item.onclick = function() {
+                document.querySelectorAll('.time-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            }
+        });
+        
+        // 更新价格
+        function updatePrice() {
+            const activeType = document.querySelector('.service-type.active');
+            const prices = { '基础策划': 800, '标准策划': 1500, '高端定制': 3000 };
+            const price = prices[activeType.textContent] || 800;
+            document.querySelector('.price-value').textContent = '¥' + price;
+        }
+        
+        // 提交预约
+        function submitBooking() {
+            alert('预约提交成功！服务人员将尽快与您联系。');
+            // TODO: 提交预约数据到后端
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>殡仪馆 - 礼纪</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; font-size: 14px; color: #333; }
+        #app { max-width: 430px; margin: 0 auto; min-height: 100vh; background: #fff; }
+        
+        /* 顶部导航 */
+        .header {
+            background: #fff;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #f0f0f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .back-btn { font-size: 20px; margin-right: 10px; cursor: pointer; }
+        .header-title { font-size: 17px; font-weight: 600; flex: 1; text-align: center; }
+        
+        /* 地区选择器 */
+        .region-selector {
+            background: #fff;
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .region-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .region-row:last-child { margin-bottom: 0; }
+        .region-select {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            background: #fff;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+        }
+        
+        /* 搜索框 */
+        .search-box {
+            padding: 15px;
+            background: #fff;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .search-input-wrapper {
+            display: flex;
+            align-items: center;
+            background: #f5f5f5;
+            border-radius: 20px;
+            padding: 10px 15px;
+        }
+        .search-icon { color: #999; margin-right: 8px; }
+        .search-input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            font-size: 14px;
+        }
+        
+        /* 殡仪馆列表 */
+        .fh-list { padding: 0 15px; }
+        .fh-item {
+            background: #fff;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .fh-header {
+            padding: 15px;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .fh-name { font-size: 16px; font-weight: 600; margin-bottom: 5px; }
+        .fh-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+        .fh-tag {
+            padding: 3px 8px;
+            background: #eef2f5;
+            color: #5a6c7d;
+            font-size: 11px;
+            border-radius: 4px;
+        }
+        .fh-body { padding: 15px; }
+        .fh-info-row {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        .fh-info-row:last-child { margin-bottom: 0; }
+        .fh-info-icon { width: 20px; margin-right: 8px; color: #999; }
+        .fh-info-text { flex: 1; font-size: 13px; color: #666; }
+        .fh-info-text .label { color: #999; margin-right: 5px; }
+        .fh-footer {
+            display: flex;
+            padding: 12px 15px;
+            border-top: 1px solid #f5f5f5;
+            gap: 10px;
+        }
+        .fh-btn {
+            flex: 1;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .fh-btn-outline {
+            border: 1px solid #5a6c7d;
+            color: #5a6c7d;
+            background: #fff;
+        }
+        .fh-btn-primary {
+            background: #5a6c7d;
+            color: #fff;
+            border: none;
+        }
+        
+        /* 价格标签 */
+        .price-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: #fff3e0;
+            color: #e67e22;
+            font-size: 12px;
+            border-radius: 4px;
+            margin-top: 8px;
+        }
+        
+        /* 空状态 */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .empty-icon { font-size: 60px; margin-bottom: 15px; }
+        .empty-text { color: #999; font-size: 14px; }
+        
+        /* 加载状态 */
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+        }
+        
+        /* Toast */
+        .toast {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.8);
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 8px;
+            z-index: 10000;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="header">
+            <span class="back-btn" onclick="history.back()">‹</span>
+            <span class="header-title">殡仪馆</span>
+            <span style="width:20px;"></span>
+        </div>
+        
+        <div class="region-selector">
+            <div class="region-row">
+                <select class="region-select" id="province-select" onchange="loadCities()">
+                    <option value="">选择省份</option>
+                    <option value="北京市">北京市</option>
+                    <option value="天津市">天津市</option>
+                    <option value="河北省">河北省</option>
+                    <option value="山西省">山西省</option>
+                    <option value="内蒙古自治区">内蒙古自治区</option>
+                    <option value="辽宁省">辽宁省</option>
+                    <option value="吉林省">吉林省</option>
+                    <option value="黑龙江省">黑龙江省</option>
+                    <option value="上海市">上海市</option>
+                    <option value="江苏省">江苏省</option>
+                    <option value="浙江省">浙江省</option>
+                    <option value="安徽省">安徽省</option>
+                    <option value="福建省">福建省</option>
+                    <option value="江西省">江西省</option>
+                    <option value="山东省">山东省</option>
+                    <option value="河南省">河南省</option>
+                    <option value="湖北省">湖北省</option>
+                    <option value="湖南省">湖南省</option>
+                    <option value="广东省">广东省</option>
+                    <option value="广西壮族自治区">广西壮族自治区</option>
+                    <option value="海南省">海南省</option>
+                    <option value="重庆市">重庆市</option>
+                    <option value="四川省" selected>四川省</option>
+                    <option value="贵州省">贵州省</option>
+                    <option value="云南省">云南省</option>
+                    <option value="西藏自治区">西藏自治区</option>
+                    <option value="陕西省">陕西省</option>
+                    <option value="甘肃省">甘肃省</option>
+                    <option value="青海省">青海省</option>
+                    <option value="宁夏回族自治区">宁夏回族自治区</option>
+                    <option value="新疆维吾尔自治区">新疆维吾尔自治区</option>
+                </select>
+                
+                <select class="region-select" id="city-select" onchange="loadDistricts()">
+                    <option value="">选择城市</option>
+                    <option value="成都市">成都市</option>
+                    <option value="自贡市">自贡市</option>
+                    <option value="攀枝花市">攀枝花市</option>
+                    <option value="泸州市">泸州市</option>
+                    <option value="德阳市">德阳市</option>
+                    <option value="绵阳市">绵阳市</option>
+                    <option value="广元市">广元市</option>
+                    <option value="遂宁市">遂宁市</option>
+                    <option value="内江市">内江市</option>
+                    <option value="乐山市">乐山市</option>
+                    <option value="南充市">南充市</option>
+                    <option value="眉山市">眉山市</option>
+                    <option value="宜宾市">宜宾市</option>
+                    <option value="广安市">广安市</option>
+                    <option value="达州市" selected>达州市</option>
+                    <option value="雅安市">雅安市</option>
+                    <option value="巴中市">巴中市</option>
+                    <option value="资阳市">资阳市</option>
+                    <option value="阿坝藏族羌族自治州">阿坝州</option>
+                    <option value="甘孜藏族自治州">甘孜州</option>
+                    <option value="凉山彝族自治州">凉山州</option>
+                </select>
+            </div>
+            
+            <div class="region-row">
+                <select class="region-select" id="district-select" onchange="loadFuneralHomes()">
+                    <option value="">选择区县/县级市</option>
+                    <option value="通川区" selected>通川区</option>
+                    <option value="达川区">达川区</option>
+                    <option value="宣汉县">宣汉县</option>
+                    <option value="开江县">开江县</option>
+                    <option value="大竹县">大竹县</option>
+                    <option value="渠县">渠县</option>
+                    <option value="万源市">万源市</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="search-box">
+            <div class="search-input-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" placeholder="搜索殡仪馆名称" id="search-input">
+            </div>
+        </div>
+        
+        <div class="fh-list" id="fh-list">
+            <!-- 动态加载殡仪馆列表 -->
+        </div>
+    </div>
+    
+    
+    <script>
+        const API_BASE = 'http://localhost:3000/api';
+        
+        // 示例数据（实际应从API获取）
+        const sampleData = [
+            {
+                id: 1,
+                name: '达州市殡仪馆',
+                province: '四川省',
+                city: '达州市',
+                district: '通川区',
+                address: '达州市通川区金龙大道南段',
+                phone: '0818-1234567',
+                mobile: '13800138001',
+                contact_person: '李主任',
+                business_hours: '24小时',
+                services: ['遗体接运', '冷藏', '火化', '告别仪式', '骨灰存放'],
+                price_range: '2000-15000元',
+                price_details: {
+                    '遗体接运': '300-800元',
+                    '冷藏': '100元/天',
+                    '火化': '500-1200元',
+                    '告别厅': '500-3000元',
+                    '骨灰盒': '200-5000元'
+                },
+                facilities: '大型告别厅3个，中型5个，小型10个，火化炉4台',
+                transport_info: '可乘公交12路、18路到达，或自驾从市区出发约15分钟',
+                rating: 4.8,
+                source: '达州市民政局官网'
+            },
+            {
+                id: 2,
+                name: '达州市仙鹤陵园',
+                province: '四川省',
+                city: '达州市',
+                district: '达川区',
+                address: '达州市达川区仙鹤路',
+                phone: '0818-2345678',
+                mobile: '13900139002',
+                contact_person: '王经理',
+                business_hours: '08:00-18:00',
+                services: ['墓地销售', '安葬服务', '祭祀服务', '骨灰安放'],
+                price_range: '8000-50000元',
+                price_details: {
+                    '墓地': '8000元起',
+                    '安葬费': '2000元',
+                    '祭祀用品': '50-500元'
+                },
+                facilities: '墓区面积500亩，可容纳10万墓位',
+                transport_info: '位于达川区仙鹤山，环境优美，交通便利',
+                rating: 4.5,
+                source: '四川省民政厅公示'
+            },
+            {
+                id: 3,
+                name: '万源市殡仪馆',
+                province: '四川省',
+                city: '达州市',
+                district: '万源市',
+                address: '达州市万源市太平镇',
+                phone: '0818-3456789',
+                mobile: '13700137003',
+                contact_person: '张主任',
+                business_hours: '24小时',
+                services: ['遗体接运', '冷藏', '火化', '告别仪式'],
+                price_range: '1500-10000元',
+                price_details: {
+                    '遗体接运': '200-600元',
+                    '冷藏': '80元/天',
+                    '火化': '400-1000元'
+                },
+                facilities: '设施现代化，服务周到',
+                transport_info: '万源市城区，交通便利',
+                rating: 4.6,
+                source: '万源市民政局官网'
+            }
+        ];
+        
+        function renderFuneralHomes(data) {
+            const listEl = document.getElementById('fh-list');
+            
+            if (data.length === 0) {
+                listEl.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">🏛️</div>
+                        <div class="empty-text">该城市暂无殡仪馆信息</div>
+                    </div>
+                `;
+                return;
+            }
+            
+            listEl.innerHTML = data.map(item => `
+                <div class="fh-item" onclick="viewDetail(${item.id})">
+                    <div class="fh-header">
+                        <div class="fh-name">${item.name}</div>
+                        <div class="fh-tags">
+                            ${item.services.map(s => `<span class="fh-tag">${s}</span>`).join('')}
+                        </div>
+                        <div class="price-tag">💰 ${item.price_range}</div>
+                        <div style="font-size:11px;color:#999;margin-top:8px;">
+                            📋 数据来源：${item.source || '民政局官网'}
+                        </div>
+                    </div>
+                    <div class="fh-body">
+                        <div class="fh-info-row">
+                            <span class="fh-info-icon">📍</span>
+                            <span class="fh-info-text">${item.address}</span>
+                        </div>
+                        <div class="fh-info-row">
+                            <span class="fh-info-icon">📞</span>
+                            <span class="fh-info-text">
+                                <span class="label">电话：</span>${item.phone}
+                                <br>
+                                <span class="label">手机：</span>${item.mobile}
+                            </span>
+                        </div>
+                        <div class="fh-info-row">
+                            <span class="fh-info-icon">🕐</span>
+                            <span class="fh-info-text">${item.business_hours}</span>
+                        </div>
+                    </div>
+                    <div class="fh-footer">
+                        <button class="fh-btn fh-btn-outline" onclick="event.stopPropagation();callPhone('${item.phone}')">📞 电话咨询</button>
+                        <button class="fh-btn fh-btn-primary" onclick="event.stopPropagation();viewDetail(${item.id})">📋 查看详情</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function loadFuneralHomes() {
+            const province = document.getElementById('province-select').value;
+            const city = document.getElementById('city-select').value;
+            const district = document.getElementById('district-select').value;
+            
+            // 模拟加载
+            document.getElementById('fh-list').innerHTML = '<div class="loading">加载中...</div>';
+            
+            setTimeout(() => {
+                // 筛选数据
+                let filteredData = sampleData;
+                
+                if (province && province !== '全国') {
+                    filteredData = filteredData.filter(item => item.province === province);
+                }
+                if (city) {
+                    filteredData = filteredData.filter(item => item.city === city);
+                }
+                if (district) {
+                    filteredData = filteredData.filter(item => item.district === district);
+                }
+                
+                renderFuneralHomes(filteredData);
+            }, 500);
+        }
+        
+        function loadDistricts() {
+            const city = document.getElementById('city-select').value;
+            const districtSelect = document.getElementById('district-select');
+            
+            // 清空区县选择
+            districtSelect.innerHTML = '<option value="">选择区县/县级市</option>';
+            
+            // 根据城市加载区县（简化版）
+            const districts = getDistrictsByCity(city);
+            districts.forEach(district => {
+                const option = document.createElement('option');
+                option.value = district;
+                option.textContent = district;
+                districtSelect.appendChild(option);
+            });
+            
+            loadFuneralHomes();
+        }
+        
+        function getDistrictsByCity(city) {
+            const districtMap = {
+                '达州市': ['通川区', '达川区', '宣汉县', '开江县', '大竹县', '渠县', '万源市'],
+                '成都市': ['锦江区', '青羊区', '金牛区', '武侯区', '成华区', '龙泉驿区', '青白江区', '新都区', '温江区', '双流区', '郫都区', '金堂县', '大邑县', '蒲江县', '新津县', '都江堰市', '彭州市', '邛崃市', '崇州市', '简阳市'],
+                '北京市': ['东城区', '西城区', '朝阳区', '丰台区', '石景山区', '海淀区', '门头沟区', '房山区', '通州区', '顺义区', '昌平区', '大兴区', '怀柔区', '平谷区', '密云区', '延庆区'],
+                '上海市': ['黄浦区', '徐汇区', '长宁区', '静安区', '普陀区', '虹口区', '杨浦区', '闵行区', '宝山区', '嘉定区', '浦东新区', '金山区', '松江区', '青浦区', '奉贤区', '崇明区']
+            };
+            return districtMap[city] || ['市区'];
+        }
+        
+        function loadCities() {
+            const province = document.getElementById('province-select').value;
+            const citySelect = document.getElementById('city-select');
+            
+            // 清空城市选择
+            citySelect.innerHTML = '<option value="">选择城市</option>';
+            
+            // 根据省份加载城市（简化版）
+            const cities = getCitiesByProvince(province);
+            cities.forEach(city => {
+                const option = document.createElement('option');
+                option.value = city;
+                option.textContent = city;
+                citySelect.appendChild(option);
+            });
+            
+            loadFuneralHomes();
+        }
+        
+        function getCitiesByProvince(province) {
+            const cityMap = {
+                '四川省': ['成都市', '自贡市', '攀枝花市', '泸州市', '德阳市', '绵阳市', '广元市', '遂宁市', '内江市', '乐山市', '南充市', '眉山市', '宜宾市', '广安市', '达州市', '雅安市', '巴中市', '资阳市', '阿坝州', '甘孜州', '凉山州'],
+                '北京市': ['北京市'],
+                '上海市': ['上海市'],
+                '天津市': ['天津市'],
+                '重庆市': ['重庆市']
+            };
+            return cityMap[province] || ['市区'];
+        }
+        
+        function viewDetail(id) {
+            // 跳转到详情页
+            window.location.href = `funeral-home-detail.html?id=${id}`;
+        }
+        
+        function callPhone(phone) {
+            window.location.href = `tel:${phone}`;
+        }
+        
+        function showToast(msg) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = msg;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 2000);
+        }
+        
+        // 初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            loadFuneralHomes();
+        });
+    </script>
+</body>
+</html>

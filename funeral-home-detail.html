@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>殡仪馆详情 - 礼纪</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; font-size: 14px; color: #333; }
+        #app { max-width: 430px; margin: 0 auto; min-height: 100vh; background: #fff; }
+        
+        /* 顶部导航 */
+        .header {
+            background: #fff;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #f0f0f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .back-btn { font-size: 24px; margin-right: 10px; cursor: pointer; color: #333; }
+        .header-title { font-size: 17px; font-weight: 600; flex: 1; text-align: center; }
+        .share-btn { font-size: 20px; color: #666; }
+        
+        /* 基本信息 */
+        .basic-info {
+            background: linear-gradient(135deg, #5a6c7d 0%, #3d4f5f 100%);
+            color: #fff;
+            padding: 25px 20px;
+        }
+        .fh-name { font-size: 22px; font-weight: 600; margin-bottom: 10px; }
+        .fh-rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .stars { color: #ffd700; font-size: 16px; }
+        .rating-num { font-size: 14px; opacity: 0.9; }
+        .fh-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+        .fh-tag {
+            padding: 4px 10px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        
+        /* 快捷操作 */
+        .quick-actions {
+            display: flex;
+            background: #fff;
+            padding: 15px;
+            gap: 10px;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .action-btn {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px;
+            border-radius: 10px;
+            background: #f9f9f9;
+            cursor: pointer;
+        }
+        .action-icon { font-size: 24px; margin-bottom: 5px; }
+        .action-text { font-size: 12px; color: #666; }
+        
+        /* 信息区块 */
+        .info-section {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 10px;
+        }
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 12px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .info-item:last-child { border-bottom: none; }
+        .info-icon {
+            width: 36px;
+            height: 36px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-right: 12px;
+        }
+        .info-content { flex: 1; }
+        .info-label { font-size: 13px; color: #999; margin-bottom: 3px; }
+        .info-value { font-size: 15px; color: #333; }
+        .info-value.phone { color: #5a6c7d; font-weight: 500; }
+        
+        /* 地图容器 */
+        .map-container {
+            height: 200px;
+            background: #e8e8e8;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        .map-placeholder {
+            text-align: center;
+            color: #999;
+        }
+        .map-btn {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: #5a6c7d;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+        
+        /* 服务项目 */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .service-item {
+            text-align: center;
+            padding: 15px 10px;
+            background: #f9f9f9;
+            border-radius: 10px;
+        }
+        .service-icon { font-size: 28px; margin-bottom: 8px; }
+        .service-name { font-size: 12px; color: #666; }
+        
+        /* 价格表 */
+        .price-list { }
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .price-item:last-child { border-bottom: none; }
+        .price-name { font-size: 14px; color: #333; }
+        .price-value {
+            font-size: 16px;
+            color: #e67e22;
+            font-weight: 600;
+        }
+        .price-note {
+            font-size: 11px;
+            color: #999;
+            margin-top: 3px;
+        }
+        
+        /* 营业时间 */
+        .hours-list { }
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .hours-day { font-size: 14px; color: #333; }
+        .hours-time { font-size: 14px; color: #5a6c7d; font-weight: 500; }
+        
+        /* 设施介绍 */
+        .facility-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .facility-tag {
+            padding: 6px 12px;
+            background: #f0f5f0;
+            color: #27ae60;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+        
+        /* 交通指南 */
+        .transport-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 12px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .transport-icon { font-size: 20px; margin-right: 10px; }
+        .transport-content { flex: 1; }
+        .transport-title { font-size: 14px; font-weight: 500; margin-bottom: 3px; }
+        .transport-desc { font-size: 13px; color: #666; }
+        
+        /* 底部按钮 */
+        .bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 430px;
+            background: #fff;
+            padding: 10px 15px 25px;
+            border-top: 1px solid #f0f0f0;
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+        .bottom-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 15px;
+            cursor: pointer;
+            border: none;
+        }
+        .bottom-btn-outline {
+            border: 1px solid #5a6c7d;
+            color: #5a6c7d;
+            background: #fff;
+        }
+        .bottom-btn-primary {
+            background: #5a6c7d;
+            color: #fff;
+        }
+        
+        /* 提示 */
+        .notice-box {
+            background: #fff8e1;
+            border-left: 3px solid #f39c12;
+            padding: 12px 15px;
+            margin: 10px 0;
+            font-size: 13px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="header">
+            <span class="back-btn" onclick="history.back()">‹</span>
+            <span class="header-title">殡仪馆详情</span>
+            <span class="share-btn">📤</span>
+        </div>
+        
+        <div class="basic-info">
+            <div class="fh-name" id="fh-name">达州市殡仪馆</div>
+            <div class="fh-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-num">4.8分</span>
+            </div>
+            <div class="fh-tags">
+                <span class="fh-tag">国营</span>
+                <span class="fh-tag">24小时服务</span>
+                <span class="fh-tag">火化资质</span>
+            </div>
+        </div>
+        
+        <div class="quick-actions">
+            <div class="action-btn" onclick="callPhone()">
+                <div class="action-icon">📞</div>
+                <div class="action-text">电话咨询</div>
+            </div>
+            
+            <div class="action-btn" onclick="openMap()">
+                <div class="action-icon">🧭</div>
+                <div class="action-text">导航</div>
+            </div>
+            
+            <div class="action-btn" onclick="copyAddress()">
+                <div class="action-icon">📋</div>
+                <div class="action-text">复制地址</div>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <div class="section-title">📍 地址信息</div>
+            
+            <div class="info-item">
+                <div class="info-icon">📍</div>
+                <div class="info-content">
+                    <div class="info-label">详细地址</div>
+                    <div class="info-value" id="fh-address">四川省达州市通川区金龙大道南段</div>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <div style="font-size:40px; margin-bottom:10px;">🗺️</div>
+                    <div>点击右下角导航</div>
+                </div>
+                <div class="map-btn" onclick="openMap()">🧭 开始导航</div>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <div class="section-title">📞 联系方式</div>
+            
+            <div class="info-item" onclick="callPhone()">
+                <div class="info-icon">📞</div>
+                <div class="info-content">
+                    <div class="info-label">服务热线</div>
+                    <div class="info-value phone" id="fh-phone">0818-1234567</div>
+                </div>
+            </div>
+            
+            <div class="info-item" onclick="callMobile()">
+                <div class="info-icon">📱</div>
+                <div class="info-content">
+                    <div class="info-label">手机/微信</div>
+                    <div class="info-value phone" id="fh-mobile">13800138001</div>
+                </div>
+            </div>
+            
+            <div class="info-item">
+                <div class="info-icon">👤</div>
+                <div class="info-content">
+                    <div class="info-label">联系人</div>
+                    <div class="info-value" id="fh-contact">李主任</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <div class="section-title">🕐 营业时间</div>
+            
+            <div class="hours-list">
+                <div class="hours-item">
+                    <span class="hours-day">遗体接运</span>
+                    <span class="hours-time">24小时</span>
+                </div>
+                <div class="hours-item">
+                    <span class="hours-day">告别仪式</span>
+                    <span class="hours-time">08:00-18:00</span>
+                </div>
+                <div class="hours-item">
+                    <span class="hours-day">火化服务</span>
+                    <span class="hours-time">07:00-17:00</span>
+                </div>
+                <div class="hours-item">
+                    <span class="hours-day">业务办理</span>
+                    <span class="hours-time">08:30-17:30</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <div class="section-title">🛎️ 服务项目</div>
+            
+            <div class="service-grid">
+                <div class="service-item">
+                    <div class="service-icon">🚗</div>
+                    <div class="service-name">遗体接运</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">❄️</div>
+                    <div class="service-name">遗体冷藏</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">🔥</div>
+                    <div class="service-name">火化服务</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">🙏</div>
+                    <div class="service-name">告别仪式</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">⚱️</div>
+                    <div class="service-name">骨灰存放</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">💄</div>
+                    <div class="service-name">遗体整容</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <div class="section-title">💰 收费标准</div>
+            
+            <div class="price-list">
+                <div class="price-item">
+                    <div>
+                        <div class="price-name">遗体接运（市区）</div>
+                        <div class="price-note">普通殡仪车，单程</div>
+                    </div>
+                    <div class="price-value">300-800元</div>
+                </div>
+                
+                <div class="price-item">
+                    <div>
+                        <div class="price-name">遗体冷藏</div>
+                        <div class="price-note">普通冷藏柜，按天计费</div>
+                    </div>
+                    <div class="price-value">100元/天</div>
+                </div>
+                
+                <div class="price-item">
+                    <div>
+                        <div class="price-name">火化费</div>
+                        <div class="price-note">普通炉火化</div>
+                    </div>
+                    <div class="price-value">500-1200元</div>
+                </div>
+                
+                <div class="price-item">
+                    <div>
+                        <div class="price-name">告别厅租赁</div>
+                        <div class="price-note">小型厅，按场次</div>
+                    </div>
+                    <div class="price-value">500-3000元</div>
+                </div>
+                
+                <div class="price-item">
+                    <div>
+                        <div class="price-name">骨灰盒</div>
+                        <div class="price-note">普通木质骨灰盒</div>
+                    </div>
+                    <div class="price-value">200-5000元</div>
+                </div>
+                
+                <div class="price-item">
+                    <div>
+                        <div class="price-name">遗体整容</div>
+                        <div class="price-note">基础整容服务</div>
+                    </div>
+                    <div class="price-value">300-1000元</div>
+                </div>
+            </div>
+            
+            <div class="notice-box">
+                💡 以上价格仅供参考，实际收费以殡仪馆公示为准。建议提前电话咨询确认。
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <div class="section-title">🏢 设施介绍</div>
+            
+            <div class="facility-list">
+                <span class="facility-tag">大型告别厅3个</span>
+                <span class="facility-tag">中型告别厅5个</span>
+                <span class="facility-tag">小型告别厅10个</span>
+                <span class="facility-tag">火化炉4台</span>
+                <span class="facility-tag">遗体冷藏柜50个</span>
+                <span class="facility-tag">免费停车场</span>
+                <span class="facility-tag">家属休息室</span>
+                <span class="facility-tag">餐饮服务区</span>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <div class="section-title">🚌 交通指南</div>
+            
+            <div class="transport-item">
+                <div class="transport-icon">🚌</div>
+                <div class="transport-content">
+                    <div class="transport-title">公交路线</div>
+                    <div class="transport-desc">可乘坐12路、18路公交车到达，在殡仪馆站下车</div>
+                </div>
+            </div>
+            
+            <div class="transport-item">
+                <div class="transport-icon">🚗</div>
+                <div class="transport-content">
+                    <div class="transport-title">自驾路线</div>
+                    <div class="transport-desc">从市区出发沿金龙大道向南行驶约15分钟，路况良好，提供免费停车位</div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="height:80px;"></div>
+        
+        <div class="bottom-bar">
+            <button class="bottom-btn bottom-btn-outline" onclick="collectInfo()">⭐ 收藏</button>
+            <button class="bottom-btn bottom-btn-primary" onclick="callPhone()">📞 立即咨询</button>
+        </div>
+    </div>
+    
+    
+    <script>
+        // 获取URL参数
+        function getParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+        
+        // 示例数据
+        const funeralHomesData = {
+            1: {
+                name: '达州市殡仪馆',
+                address: '四川省达州市通川区金龙大道南段',
+                phone: '0818-1234567',
+                mobile: '13800138001',
+                contact: '李主任',
+                lat: 31.209,
+                lng: 107.468
+            },
+            2: {
+                name: '达州市仙鹤陵园',
+                address: '四川省达州市达川区仙鹤路',
+                phone: '0818-2345678',
+                mobile: '13900139002',
+                contact: '王经理',
+                lat: 31.195,
+                lng: 107.485
+            }
+        };
+        
+        // 加载数据
+        function loadData() {
+            const id = getParam('id') || 1;
+            const data = funeralHomesData[id];
+            
+            if (data) {
+                document.getElementById('fh-name').textContent = data.name;
+                document.getElementById('fh-address').textContent = data.address;
+                document.getElementById('fh-phone').textContent = data.phone;
+                document.getElementById('fh-mobile').textContent = data.mobile;
+                document.getElementById('fh-contact').textContent = data.contact;
+            }
+        }
+        
+        // 打开地图导航
+        function openMap() {
+            const address = document.getElementById('fh-address').textContent;
+            const name = document.getElementById('fh-name').textContent;
+            
+            // 尝试多种地图导航方式
+            const encodedAddress = encodeURIComponent(address);
+            const encodedName = encodeURIComponent(name);
+            
+            // 高德地图
+            const amapUrl = `https://uri.amap.com/navigation?to=${encodedAddress},${name}&mode=car&policy=1`;
+            
+            // 腾讯地图
+            const qqmapUrl = `https://apis.map.qq.com/uri/v1/routeplan?type=drive&to=${encodedName}&tocoord=39.9049,116.4053&referer=liji`;
+            
+            // 百度地图
+            const baiduUrl = `https://api.map.baidu.com/marker?location=39.9049,116.4053&title=${encodedName}&content=${encodedAddress}&output=html`;
+            
+            // 优先尝试高德地图
+            window.location.href = amapUrl;
+        }
+        
+        // 拨打电话
+        function callPhone() {
+            const phone = document.getElementById('fh-phone').textContent;
+            window.location.href = `tel:${phone}`;
+        }
+        
+        function callMobile() {
+            const mobile = document.getElementById('fh-mobile').textContent;
+            window.location.href = `tel:${mobile}`;
+        }
+        
+        // 复制地址
+        function copyAddress() {
+            const address = document.getElementById('fh-address').textContent;
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(address).then(() => {
+                    showToast('地址已复制');
+                });
+            } else {
+                // 兼容旧浏览器
+                const input = document.createElement('input');
+                input.value = address;
+                document.body.appendChild(input);
+                input.select();
+                document.execCommand('copy');
+                document.body.removeChild(input);
+                showToast('地址已复制');
+            }
+        }
+        
+        // 收藏
+        function collectInfo() {
+            showToast('已收藏');
+        }
+        
+        // Toast提示
+        function showToast(msg) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.8);color:#fff;padding:12px 25px;border-radius:8px;z-index:10000;font-size:14px;';
+            toast.textContent = msg;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 2000);
+        }
+        
+        // 初始化
+        document.addEventListener('DOMContentLoaded', loadData);
+    </script>
+</body>
+</html>

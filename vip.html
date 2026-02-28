@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VIP会员 - 礼纪</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; font-size: 14px; color: #333; }
+        #app { max-width: 430px; margin: 0 auto; min-height: 100vh; background: #f5f5f5; }
+        
+        .header {
+            background: linear-gradient(135deg, #5a6c7d 0%, #3d4f5f 100%);
+            padding: 40px 20px;
+            text-align: center;
+            color: #fff;
+        }
+        .header-title { font-size: 18px; margin-bottom: 20px; }
+        .vip-badge { font-size: 48px; margin-bottom: 10px; }
+        .vip-text { font-size: 24px; font-weight: 600; }
+        
+        .benefits-card {
+            background: #fff;
+            margin: -30px 15px 15px;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .benefits-title { font-size: 16px; font-weight: 600; margin-bottom: 15px; }
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .benefit-icon { font-size: 24px; margin-right: 12px; }
+        .benefit-text { flex: 1; }
+        .benefit-name { font-weight: 500; }
+        .benefit-desc { font-size: 12px; color: #999; }
+        
+        .price-section {
+            background: #fff;
+            margin: 15px;
+            border-radius: 15px;
+            padding: 20px;
+        }
+        .price-title { font-size: 16px; font-weight: 600; margin-bottom: 15px; text-align: center; }
+        .price-card {
+            border: 2px solid #e6a23c;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #fff8e1 0%, #fff 100%);
+        }
+        .price-amount { font-size: 36px; font-weight: 600; color: #e6a23c; }
+        .price-unit { font-size: 14px; color: #666; }
+        .price-original {
+            text-decoration: line-through;
+            color: #999;
+            margin: 10px 0;
+        }
+        
+        .pay-btn {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 430px;
+            background: linear-gradient(135deg, #e6a23c 0%, #d4a017 100%);
+            color: #fff;
+            padding: 16px;
+            border: none;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="header">
+            <div class="header-title">VIP会员</div>
+            <div class="vip-badge">💎</div>
+            <div class="vip-text">升级VIP 解锁全部功能</div>
+        </div>
+        
+        <div class="benefits-card">
+            <div class="benefits-title">VIP专属权益</div>
+            
+            <div class="benefit-item">
+                <span class="benefit-icon">📜</span>
+                <div class="benefit-text">
+                    <div class="benefit-name">全部主持词库</div>
+                    <div class="benefit-desc">解锁8大类主持词，100+篇台词</div>
+                </div>
+            </div>
+            
+            <div class="benefit-item">
+                <span class="benefit-icon">📋</span>
+                <div class="benefit-text">
+                    <div class="benefit-name">全部模板工具</div>
+                    <div class="benefit-desc">报价单、合同、流程表等全部解锁</div>
+                </div>
+            </div>
+            
+            <div class="benefit-item">
+                <span class="benefit-icon">📊</span>
+                <div class="benefit-text">
+                    <div class="benefit-name">完整收入统计</div>
+                    <div class="benefit-desc">图表展示，多维度数据分析</div>
+                </div>
+            </div>
+            
+            <div class="benefit-item">
+                <span class="benefit-icon">☁️</span>
+                <div class="benefit-text">
+                    <div class="benefit-name">云端数据同步</div>
+                    <div class="benefit-desc">数据永不丢失，换机无忧</div>
+                </div>
+            </div>
+            
+            <div class="benefit-item">
+                <span class="benefit-icon">🎓>
+                <div class="benefit-text">
+                    <div class="benefit-name">VIP专属课程</div>
+                    <div class="benefit-desc">50+节专业课程免费学</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="price-section">
+            <div class="price-title">选择套餐</div>
+            <div class="price-card">
+                <div class="price-amount">¥98</div>
+                <div class="price-unit">/年</div>
+                <div class="price-original">原价 ¥198</div>
+                <div style="color:#e6a23c;font-size:13px;">限时5折优惠</div>
+            </div>
+        </div>
+        
+        <button class="pay-btn" onclick="alert('支付功能开发中')">立即开通</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试账号列表 - 礼纪</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 20px; background: #f5f5f5; }
+        h1 { text-align: center; color: #333; }
+        .summary { text-align: center; margin: 20px 0; color: #666; }
+        .profession-section { margin-bottom: 30px; background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .profession-title { font-size: 20px; font-weight: 600; color: #5a6c7d; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid #5a6c7d; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background: #f8f9fa; font-weight: 600; color: #333; }
+        tr:hover { background: #f8f9fa; }
+        .password { color: #e74c3c; font-weight: 600; }
+        .phone { color: #27ae60; }
+        .vip { background: #e6a23c; color: #fff; padding: 2px 8px; border-radius: 10px; font-size: 12px; }
+        .normal { background: #95a5a6; color: #fff; padding: 2px 8px; border-radius: 10px; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <h1>🕯️ 礼纪APP - 测试账号列表</h1>
+    <div class="summary">
+        <p><strong>总账号数：120个</strong>（12职业 × 10人）</p>
+        <p><strong>通用密码：Test123456</strong></p>
+        <p>登录地址：<a href="login.html">点击前往登录页</a></p>
+    </div>
+
+    <div id="account-list"></div>
+
+    <script>
+        const professions = ['策划师', '主持人', '礼仪师', '入殓师', '花艺师', '摄像师', '摄影师', '歌手', '舞蹈', '乐队', '法事', '殡仪馆'];
+        const cities = [
+            ['四川省', '达州市'], ['四川省', '成都市'], ['四川省', '绵阳市'],
+            ['北京市', '北京市'], ['上海市', '上海市'],
+            ['广东省', '广州市'], ['广东省', '深圳市'],
+            ['浙江省', '杭州市'], ['江苏省', '南京市'], ['湖北省', '武汉市']
+        ];
+        const names = ['郭强波', '朱涛', '郭华', '陈晨伟', '罗军军', '陈军磊', '马龙', '刘明', '黄波文', '徐娜磊'];
+        const phones = ['18822868589', '15135173560', '15817901958', '13717956919', '13969092959', '18220854667', '15819658126', '15095004833', '18370235830', '15929108544'];
+        
+        let accountId = 10001;
+        const container = document.getElementById('account-list');
+        
+        professions.forEach((profession, pIndex) => {
+            const section = document.createElement('div');
+            section.className = 'profession-section';
+            
+            let tableHtml = `
+                <div class="profession-title">${profession}（10个账号）</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>用户名</th>
+                            <th>密码</th>
+                            <th>姓名</th>
+                            <th>手机号</th>
+                            <th>所在城市</th>
+                            <th>服务场次</th>
+                            <th>会员类型</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            
+            for (let i = 0; i < 10; i++) {
+                const cityPair = cities[(pIndex + i) % cities.length];
+                const name = names[i];
+                const phone = phones[i];
+                const isVip = i < 5; // 前5个是VIP
+                const serviceCount = Math.floor(Math.random() * 400) + 50;
+                
+                tableHtml += `
+                    <tr>
+                        <td>${i + 1}</td>
+                        <td><strong>${profession}${String(i + 1).padStart(2, '0')}</strong></td>
+                        <td class="password">Test123456</td>
+                        <td>${name}</td>
+                        <td class="phone">${phone}</td>
+                        <td>${cityPair[0]} ${cityPair[1]}</td>
+                        <td>${serviceCount}场</td>
+                        <td>${isVip ? '<span class="vip">VIP</span>' : '<span class="normal">普通</span>'}</td>
+                    </tr>
+                `;
+            }
+            
+            tableHtml += '</tbody></table>';
+            section.innerHTML = tableHtml;
+            container.appendChild(section);
+        });
+    </script>
+</body>
+</html>
