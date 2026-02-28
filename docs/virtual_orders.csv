@@ -1,0 +1,11 @@
+order_id,user_id,worker_id,service_type,amount,status,create_time
+order001,customer001,lj_001,基础策划,800,已完成,2026-02-25
+order002,customer002,lj_011,主持服务,1200,进行中,2026-02-26
+order003,customer003,lj_021,礼仪服务,600,待评价,2026-02-27
+order004,customer004,lj_031,入殓服务,1500,已完成,2026-02-24
+order005,customer005,lj_041,花艺布置,900,进行中,2026-02-26
+order006,customer006,lj_051,摄像服务,2000,已完成,2026-02-23
+order007,customer007,lj_061,摄影服务,1800,待评价,2026-02-27
+order008,customer008,lj_071,歌手表演,800,已完成,2026-02-22
+order009,customer009,lj_081,舞蹈表演,1000,进行中,2026-02-26
+order010,customer010,lj_091,乐队演奏,3000,已完成,2026-02-21

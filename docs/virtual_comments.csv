@@ -1,0 +1,11 @@
+comment_id,post_id,user_id,user_name,content,likes,time
+comment001,post001,lj_002,李华,非常专业的服务，家属很满意！,15,2小时前
+comment002,post001,lj_003,王芳,感谢分享，学到了很多,8,3小时前
+comment003,post002,lj_004,刘强,礼仪师的工作真不容易，致敬,12,1小时前
+comment004,post003,lj_005,陈静,服务态度很好，推荐,20,4小时前
+comment005,post004,lj_006,赵伟,专业！下次还会选择,6,5小时前
+comment006,post005,lj_007,孙丽,感谢信任，我们会继续努力的,18,2小时前
+comment007,post006,lj_008,周强,很有意义的分享,9,3小时前
+comment008,post007,lj_009,吴敏,学到了很多专业知识,14,1小时前
+comment009,post008,lj_010,郑杰,服务态度一流,22,4小时前
+comment010,post009,lj_011,林娜,非常感谢您的认可,11,2小时前
