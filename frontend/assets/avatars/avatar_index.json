@@ -1,0 +1,1219 @@
+{
+  "total": 120,
+  "jobs": [
+    "策划师",
+    "主持人",
+    "礼仪师",
+    "入殓师",
+    "花艺师",
+    "摄像师",
+    "摄影师",
+    "歌手",
+    "舞蹈",
+    "乐队",
+    "法事",
+    "殡仪馆"
+  ],
+  "avatars": [
+    {
+      "id": "策划师_01",
+      "name": "梁华",
+      "gender": "男",
+      "job": "策划师",
+      "emoji": "👔",
+      "color": "#8B7355",
+      "bg_color": "#F5F5DC",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5DC\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">👔</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">梁</text>\n</svg>"
+    },
+    {
+      "id": "策划师_02",
+      "name": "张勇",
+      "gender": "男",
+      "job": "策划师",
+      "emoji": "👔",
+      "color": "#8B7355",
+      "bg_color": "#F5F5DC",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5DC\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">👔</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">张</text>\n</svg>"
+    },
+    {
+      "id": "策划师_03",
+      "name": "黄洋",
+      "gender": "男",
+      "job": "策划师",
+      "emoji": "👔",
+      "color": "#8B7355",
+      "bg_color": "#F5F5DC",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5DC\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">👔</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">黄</text>\n</svg>"
+    },
+    {
+      "id": "策划师_04",
+      "name": "陈华",
+      "gender": "男",
+      "job": "策划师",
+      "emoji": "👔",
+      "color": "#8B7355",
+      "bg_color": "#F5F5DC",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5DC\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">👔</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">陈</text>\n</svg>"
+    },
+    {
+      "id": "策划师_05",
+      "name": "宋飞",
+      "gender": "男",
+      "job": "策划师",
+      "emoji": "👔",
+      "color": "#8B7355",
+      "bg_color": "#F5F5DC",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5DC\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">👔</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">宋</text>\n</svg>"
+    },
+    {
+      "id": "策划师_06",
+      "name": "王颖",
+      "gender": "女",
+      "job": "策划师",
+      "emoji": "👔",
+      "color": "#8B7355",
+      "bg_color": "#F5F5DC",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5DC\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">👔</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">王</text>\n</svg>"
+    },
+    {
+      "id": "策划师_07",
+      "name": "朱芳",
+      "gender": "女",
+      "job": "策划师",
+      "emoji": "👔",
+      "color": "#8B7355",
+      "bg_color": "#F5F5DC",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5DC\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">👔</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">朱</text>\n</svg>"
+    },
+    {
+      "id": "策划师_08",
+      "name": "张敏",
+      "gender": "女",
+      "job": "策划师",
+      "emoji": "👔",
+      "color": "#8B7355",
+      "bg_color": "#F5F5DC",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5DC\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">👔</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">张</text>\n</svg>"
+    },
+    {
+      "id": "策划师_09",
+      "name": "赵红",
+      "gender": "女",
+      "job": "策划师",
+      "emoji": "👔",
+      "color": "#8B7355",
+      "bg_color": "#F5F5DC",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5DC\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">👔</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">赵</text>\n</svg>"
+    },
+    {
+      "id": "策划师_10",
+      "name": "何慧",
+      "gender": "女",
+      "job": "策划师",
+      "emoji": "👔",
+      "color": "#8B7355",
+      "bg_color": "#F5F5DC",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5DC\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">👔</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">何</text>\n</svg>"
+    },
+    {
+      "id": "主持人_01",
+      "name": "张飞",
+      "gender": "男",
+      "job": "主持人",
+      "emoji": "🎤",
+      "color": "#696969",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎤</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">张</text>\n</svg>"
+    },
+    {
+      "id": "主持人_02",
+      "name": "赵飞",
+      "gender": "男",
+      "job": "主持人",
+      "emoji": "🎤",
+      "color": "#696969",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎤</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">赵</text>\n</svg>"
+    },
+    {
+      "id": "主持人_03",
+      "name": "朱洋",
+      "gender": "男",
+      "job": "主持人",
+      "emoji": "🎤",
+      "color": "#696969",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎤</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">朱</text>\n</svg>"
+    },
+    {
+      "id": "主持人_04",
+      "name": "高宇",
+      "gender": "男",
+      "job": "主持人",
+      "emoji": "🎤",
+      "color": "#696969",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎤</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">高</text>\n</svg>"
+    },
+    {
+      "id": "主持人_05",
+      "name": "周明",
+      "gender": "男",
+      "job": "主持人",
+      "emoji": "🎤",
+      "color": "#696969",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎤</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">周</text>\n</svg>"
+    },
+    {
+      "id": "主持人_06",
+      "name": "韩娟",
+      "gender": "女",
+      "job": "主持人",
+      "emoji": "🎤",
+      "color": "#696969",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎤</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">韩</text>\n</svg>"
+    },
+    {
+      "id": "主持人_07",
+      "name": "郑婷",
+      "gender": "女",
+      "job": "主持人",
+      "emoji": "🎤",
+      "color": "#696969",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎤</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">郑</text>\n</svg>"
+    },
+    {
+      "id": "主持人_08",
+      "name": "徐玲",
+      "gender": "女",
+      "job": "主持人",
+      "emoji": "🎤",
+      "color": "#696969",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎤</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">徐</text>\n</svg>"
+    },
+    {
+      "id": "主持人_09",
+      "name": "陈艳",
+      "gender": "女",
+      "job": "主持人",
+      "emoji": "🎤",
+      "color": "#696969",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎤</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">陈</text>\n</svg>"
+    },
+    {
+      "id": "主持人_10",
+      "name": "韩梅",
+      "gender": "女",
+      "job": "主持人",
+      "emoji": "🎤",
+      "color": "#696969",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎤</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">韩</text>\n</svg>"
+    },
+    {
+      "id": "礼仪师_01",
+      "name": "刘伟",
+      "gender": "男",
+      "job": "礼仪师",
+      "emoji": "🙏",
+      "color": "#708090",
+      "bg_color": "#F0F0F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F0F0F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🙏</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">刘</text>\n</svg>"
+    },
+    {
+      "id": "礼仪师_02",
+      "name": "胡华",
+      "gender": "男",
+      "job": "礼仪师",
+      "emoji": "🙏",
+      "color": "#708090",
+      "bg_color": "#F0F0F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F0F0F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🙏</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">胡</text>\n</svg>"
+    },
+    {
+      "id": "礼仪师_03",
+      "name": "孙超",
+      "gender": "男",
+      "job": "礼仪师",
+      "emoji": "🙏",
+      "color": "#708090",
+      "bg_color": "#F0F0F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F0F0F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🙏</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">孙</text>\n</svg>"
+    },
+    {
+      "id": "礼仪师_04",
+      "name": "罗勇",
+      "gender": "男",
+      "job": "礼仪师",
+      "emoji": "🙏",
+      "color": "#708090",
+      "bg_color": "#F0F0F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F0F0F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🙏</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">罗</text>\n</svg>"
+    },
+    {
+      "id": "礼仪师_05",
+      "name": "唐强",
+      "gender": "男",
+      "job": "礼仪师",
+      "emoji": "🙏",
+      "color": "#708090",
+      "bg_color": "#F0F0F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F0F0F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🙏</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">唐</text>\n</svg>"
+    },
+    {
+      "id": "礼仪师_06",
+      "name": "谢云",
+      "gender": "女",
+      "job": "礼仪师",
+      "emoji": "🙏",
+      "color": "#708090",
+      "bg_color": "#F0F0F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F0F0F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🙏</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">谢</text>\n</svg>"
+    },
+    {
+      "id": "礼仪师_07",
+      "name": "郭静",
+      "gender": "女",
+      "job": "礼仪师",
+      "emoji": "🙏",
+      "color": "#708090",
+      "bg_color": "#F0F0F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F0F0F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🙏</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">郭</text>\n</svg>"
+    },
+    {
+      "id": "礼仪师_08",
+      "name": "萧琴",
+      "gender": "女",
+      "job": "礼仪师",
+      "emoji": "🙏",
+      "color": "#708090",
+      "bg_color": "#F0F0F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F0F0F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🙏</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">萧</text>\n</svg>"
+    },
+    {
+      "id": "礼仪师_09",
+      "name": "王燕",
+      "gender": "女",
+      "job": "礼仪师",
+      "emoji": "🙏",
+      "color": "#708090",
+      "bg_color": "#F0F0F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F0F0F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🙏</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">王</text>\n</svg>"
+    },
+    {
+      "id": "礼仪师_10",
+      "name": "吴慧",
+      "gender": "女",
+      "job": "礼仪师",
+      "emoji": "🙏",
+      "color": "#708090",
+      "bg_color": "#F0F0F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F0F0F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🙏</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">吴</text>\n</svg>"
+    },
+    {
+      "id": "入殓师_01",
+      "name": "董超",
+      "gender": "男",
+      "job": "入殓师",
+      "emoji": "⚰️",
+      "color": "#556B2F",
+      "bg_color": "#F5F5F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">⚰️</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">董</text>\n</svg>"
+    },
+    {
+      "id": "入殓师_02",
+      "name": "马磊",
+      "gender": "男",
+      "job": "入殓师",
+      "emoji": "⚰️",
+      "color": "#556B2F",
+      "bg_color": "#F5F5F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">⚰️</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">马</text>\n</svg>"
+    },
+    {
+      "id": "入殓师_03",
+      "name": "郑伟",
+      "gender": "男",
+      "job": "入殓师",
+      "emoji": "⚰️",
+      "color": "#556B2F",
+      "bg_color": "#F5F5F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">⚰️</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">郑</text>\n</svg>"
+    },
+    {
+      "id": "入殓师_04",
+      "name": "李洋",
+      "gender": "男",
+      "job": "入殓师",
+      "emoji": "⚰️",
+      "color": "#556B2F",
+      "bg_color": "#F5F5F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">⚰️</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">李</text>\n</svg>"
+    },
+    {
+      "id": "入殓师_05",
+      "name": "韩杰",
+      "gender": "男",
+      "job": "入殓师",
+      "emoji": "⚰️",
+      "color": "#556B2F",
+      "bg_color": "#F5F5F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">⚰️</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">韩</text>\n</svg>"
+    },
+    {
+      "id": "入殓师_06",
+      "name": "王红",
+      "gender": "女",
+      "job": "入殓师",
+      "emoji": "⚰️",
+      "color": "#556B2F",
+      "bg_color": "#F5F5F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">⚰️</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">王</text>\n</svg>"
+    },
+    {
+      "id": "入殓师_07",
+      "name": "于静",
+      "gender": "女",
+      "job": "入殓师",
+      "emoji": "⚰️",
+      "color": "#556B2F",
+      "bg_color": "#F5F5F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">⚰️</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">于</text>\n</svg>"
+    },
+    {
+      "id": "入殓师_08",
+      "name": "胡玲",
+      "gender": "女",
+      "job": "入殓师",
+      "emoji": "⚰️",
+      "color": "#556B2F",
+      "bg_color": "#F5F5F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">⚰️</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">胡</text>\n</svg>"
+    },
+    {
+      "id": "入殓师_09",
+      "name": "高雪",
+      "gender": "女",
+      "job": "入殓师",
+      "emoji": "⚰️",
+      "color": "#556B2F",
+      "bg_color": "#F5F5F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">⚰️</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">高</text>\n</svg>"
+    },
+    {
+      "id": "入殓师_10",
+      "name": "杨雪",
+      "gender": "女",
+      "job": "入殓师",
+      "emoji": "⚰️",
+      "color": "#556B2F",
+      "bg_color": "#F5F5F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">⚰️</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">杨</text>\n</svg>"
+    },
+    {
+      "id": "花艺师_01",
+      "name": "孙磊",
+      "gender": "男",
+      "job": "花艺师",
+      "emoji": "🌸",
+      "color": "#D2B48C",
+      "bg_color": "#FFF8DC",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#FFF8DC\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🌸</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">孙</text>\n</svg>"
+    },
+    {
+      "id": "花艺师_02",
+      "name": "宋勇",
+      "gender": "男",
+      "job": "花艺师",
+      "emoji": "🌸",
+      "color": "#D2B48C",
+      "bg_color": "#FFF8DC",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#FFF8DC\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🌸</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">宋</text>\n</svg>"
+    },
+    {
+      "id": "花艺师_03",
+      "name": "郑伟",
+      "gender": "男",
+      "job": "花艺师",
+      "emoji": "🌸",
+      "color": "#D2B48C",
+      "bg_color": "#FFF8DC",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#FFF8DC\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🌸</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">郑</text>\n</svg>"
+    },
+    {
+      "id": "花艺师_04",
+      "name": "罗军",
+      "gender": "男",
+      "job": "花艺师",
+      "emoji": "🌸",
+      "color": "#D2B48C",
+      "bg_color": "#FFF8DC",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#FFF8DC\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🌸</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">罗</text>\n</svg>"
+    },
+    {
+      "id": "花艺师_05",
+      "name": "郭洋",
+      "gender": "男",
+      "job": "花艺师",
+      "emoji": "🌸",
+      "color": "#D2B48C",
+      "bg_color": "#FFF8DC",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#FFF8DC\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🌸</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">郭</text>\n</svg>"
+    },
+    {
+      "id": "花艺师_06",
+      "name": "杨云",
+      "gender": "女",
+      "job": "花艺师",
+      "emoji": "🌸",
+      "color": "#D2B48C",
+      "bg_color": "#FFF8DC",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#FFF8DC\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🌸</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">杨</text>\n</svg>"
+    },
+    {
+      "id": "花艺师_07",
+      "name": "胡玲",
+      "gender": "女",
+      "job": "花艺师",
+      "emoji": "🌸",
+      "color": "#D2B48C",
+      "bg_color": "#FFF8DC",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#FFF8DC\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🌸</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">胡</text>\n</svg>"
+    },
+    {
+      "id": "花艺师_08",
+      "name": "萧燕",
+      "gender": "女",
+      "job": "花艺师",
+      "emoji": "🌸",
+      "color": "#D2B48C",
+      "bg_color": "#FFF8DC",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#FFF8DC\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🌸</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">萧</text>\n</svg>"
+    },
+    {
+      "id": "花艺师_09",
+      "name": "黄梅",
+      "gender": "女",
+      "job": "花艺师",
+      "emoji": "🌸",
+      "color": "#D2B48C",
+      "bg_color": "#FFF8DC",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#FFF8DC\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🌸</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">黄</text>\n</svg>"
+    },
+    {
+      "id": "花艺师_10",
+      "name": "冯芳",
+      "gender": "女",
+      "job": "花艺师",
+      "emoji": "🌸",
+      "color": "#D2B48C",
+      "bg_color": "#FFF8DC",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#FFF8DC\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🌸</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">冯</text>\n</svg>"
+    },
+    {
+      "id": "摄像师_01",
+      "name": "黄强",
+      "gender": "男",
+      "job": "摄像师",
+      "emoji": "🎥",
+      "color": "#2F4F4F",
+      "bg_color": "#E0E0E0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E0E0E0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎥</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">黄</text>\n</svg>"
+    },
+    {
+      "id": "摄像师_02",
+      "name": "唐涛",
+      "gender": "男",
+      "job": "摄像师",
+      "emoji": "🎥",
+      "color": "#2F4F4F",
+      "bg_color": "#E0E0E0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E0E0E0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎥</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">唐</text>\n</svg>"
+    },
+    {
+      "id": "摄像师_03",
+      "name": "胡勇",
+      "gender": "男",
+      "job": "摄像师",
+      "emoji": "🎥",
+      "color": "#2F4F4F",
+      "bg_color": "#E0E0E0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E0E0E0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎥</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">胡</text>\n</svg>"
+    },
+    {
+      "id": "摄像师_04",
+      "name": "王磊",
+      "gender": "男",
+      "job": "摄像师",
+      "emoji": "🎥",
+      "color": "#2F4F4F",
+      "bg_color": "#E0E0E0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E0E0E0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎥</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">王</text>\n</svg>"
+    },
+    {
+      "id": "摄像师_05",
+      "name": "萧宇",
+      "gender": "男",
+      "job": "摄像师",
+      "emoji": "🎥",
+      "color": "#2F4F4F",
+      "bg_color": "#E0E0E0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E0E0E0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎥</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">萧</text>\n</svg>"
+    },
+    {
+      "id": "摄像师_06",
+      "name": "董梅",
+      "gender": "女",
+      "job": "摄像师",
+      "emoji": "🎥",
+      "color": "#2F4F4F",
+      "bg_color": "#E0E0E0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E0E0E0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎥</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">董</text>\n</svg>"
+    },
+    {
+      "id": "摄像师_07",
+      "name": "赵霞",
+      "gender": "女",
+      "job": "摄像师",
+      "emoji": "🎥",
+      "color": "#2F4F4F",
+      "bg_color": "#E0E0E0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E0E0E0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎥</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">赵</text>\n</svg>"
+    },
+    {
+      "id": "摄像师_08",
+      "name": "胡云",
+      "gender": "女",
+      "job": "摄像师",
+      "emoji": "🎥",
+      "color": "#2F4F4F",
+      "bg_color": "#E0E0E0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E0E0E0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎥</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">胡</text>\n</svg>"
+    },
+    {
+      "id": "摄像师_09",
+      "name": "陈玲",
+      "gender": "女",
+      "job": "摄像师",
+      "emoji": "🎥",
+      "color": "#2F4F4F",
+      "bg_color": "#E0E0E0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E0E0E0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎥</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">陈</text>\n</svg>"
+    },
+    {
+      "id": "摄像师_10",
+      "name": "陈红",
+      "gender": "女",
+      "job": "摄像师",
+      "emoji": "🎥",
+      "color": "#2F4F4F",
+      "bg_color": "#E0E0E0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E0E0E0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎥</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">陈</text>\n</svg>"
+    },
+    {
+      "id": "摄影师_01",
+      "name": "谢飞",
+      "gender": "男",
+      "job": "摄影师",
+      "emoji": "📷",
+      "color": "#483D8B",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">📷</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">谢</text>\n</svg>"
+    },
+    {
+      "id": "摄影师_02",
+      "name": "郭勇",
+      "gender": "男",
+      "job": "摄影师",
+      "emoji": "📷",
+      "color": "#483D8B",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">📷</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">郭</text>\n</svg>"
+    },
+    {
+      "id": "摄影师_03",
+      "name": "谢宇",
+      "gender": "男",
+      "job": "摄影师",
+      "emoji": "📷",
+      "color": "#483D8B",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">📷</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">谢</text>\n</svg>"
+    },
+    {
+      "id": "摄影师_04",
+      "name": "朱宇",
+      "gender": "男",
+      "job": "摄影师",
+      "emoji": "📷",
+      "color": "#483D8B",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">📷</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">朱</text>\n</svg>"
+    },
+    {
+      "id": "摄影师_05",
+      "name": "胡超",
+      "gender": "男",
+      "job": "摄影师",
+      "emoji": "📷",
+      "color": "#483D8B",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">📷</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">胡</text>\n</svg>"
+    },
+    {
+      "id": "摄影师_06",
+      "name": "黄秀",
+      "gender": "女",
+      "job": "摄影师",
+      "emoji": "📷",
+      "color": "#483D8B",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">📷</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">黄</text>\n</svg>"
+    },
+    {
+      "id": "摄影师_07",
+      "name": "何霞",
+      "gender": "女",
+      "job": "摄影师",
+      "emoji": "📷",
+      "color": "#483D8B",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">📷</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">何</text>\n</svg>"
+    },
+    {
+      "id": "摄影师_08",
+      "name": "王芳",
+      "gender": "女",
+      "job": "摄影师",
+      "emoji": "📷",
+      "color": "#483D8B",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">📷</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">王</text>\n</svg>"
+    },
+    {
+      "id": "摄影师_09",
+      "name": "于静",
+      "gender": "女",
+      "job": "摄影师",
+      "emoji": "📷",
+      "color": "#483D8B",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">📷</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">于</text>\n</svg>"
+    },
+    {
+      "id": "摄影师_10",
+      "name": "陈娟",
+      "gender": "女",
+      "job": "摄影师",
+      "emoji": "📷",
+      "color": "#483D8B",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">📷</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">陈</text>\n</svg>"
+    },
+    {
+      "id": "歌手_01",
+      "name": "唐峰",
+      "gender": "男",
+      "job": "歌手",
+      "emoji": "🎵",
+      "color": "#8B4513",
+      "bg_color": "#FFF5EE",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#FFF5EE\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎵</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">唐</text>\n</svg>"
+    },
+    {
+      "id": "歌手_02",
+      "name": "罗伟",
+      "gender": "男",
+      "job": "歌手",
+      "emoji": "🎵",
+      "color": "#8B4513",
+      "bg_color": "#FFF5EE",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#FFF5EE\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎵</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">罗</text>\n</svg>"
+    },
+    {
+      "id": "歌手_03",
+      "name": "胡俊",
+      "gender": "男",
+      "job": "歌手",
+      "emoji": "🎵",
+      "color": "#8B4513",
+      "bg_color": "#FFF5EE",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#FFF5EE\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎵</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">胡</text>\n</svg>"
+    },
+    {
+      "id": "歌手_04",
+      "name": "罗辉",
+      "gender": "男",
+      "job": "歌手",
+      "emoji": "🎵",
+      "color": "#8B4513",
+      "bg_color": "#FFF5EE",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#FFF5EE\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎵</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">罗</text>\n</svg>"
+    },
+    {
+      "id": "歌手_05",
+      "name": "何勇",
+      "gender": "男",
+      "job": "歌手",
+      "emoji": "🎵",
+      "color": "#8B4513",
+      "bg_color": "#FFF5EE",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#FFF5EE\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎵</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">何</text>\n</svg>"
+    },
+    {
+      "id": "歌手_06",
+      "name": "郭丽",
+      "gender": "女",
+      "job": "歌手",
+      "emoji": "🎵",
+      "color": "#8B4513",
+      "bg_color": "#FFF5EE",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#FFF5EE\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎵</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">郭</text>\n</svg>"
+    },
+    {
+      "id": "歌手_07",
+      "name": "宋静",
+      "gender": "女",
+      "job": "歌手",
+      "emoji": "🎵",
+      "color": "#8B4513",
+      "bg_color": "#FFF5EE",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#FFF5EE\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎵</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">宋</text>\n</svg>"
+    },
+    {
+      "id": "歌手_08",
+      "name": "宋燕",
+      "gender": "女",
+      "job": "歌手",
+      "emoji": "🎵",
+      "color": "#8B4513",
+      "bg_color": "#FFF5EE",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#FFF5EE\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎵</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">宋</text>\n</svg>"
+    },
+    {
+      "id": "歌手_09",
+      "name": "韩玲",
+      "gender": "女",
+      "job": "歌手",
+      "emoji": "🎵",
+      "color": "#8B4513",
+      "bg_color": "#FFF5EE",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#FFF5EE\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎵</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">韩</text>\n</svg>"
+    },
+    {
+      "id": "歌手_10",
+      "name": "韩梅",
+      "gender": "女",
+      "job": "歌手",
+      "emoji": "🎵",
+      "color": "#8B4513",
+      "bg_color": "#FFF5EE",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#FFF5EE\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎵</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">韩</text>\n</svg>"
+    },
+    {
+      "id": "舞蹈_01",
+      "name": "刘杰",
+      "gender": "男",
+      "job": "舞蹈",
+      "emoji": "💃",
+      "color": "#800080",
+      "bg_color": "#F8F8FF",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F8F8FF\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">💃</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">刘</text>\n</svg>"
+    },
+    {
+      "id": "舞蹈_02",
+      "name": "朱军",
+      "gender": "男",
+      "job": "舞蹈",
+      "emoji": "💃",
+      "color": "#800080",
+      "bg_color": "#F8F8FF",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F8F8FF\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">💃</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">朱</text>\n</svg>"
+    },
+    {
+      "id": "舞蹈_03",
+      "name": "高明",
+      "gender": "男",
+      "job": "舞蹈",
+      "emoji": "💃",
+      "color": "#800080",
+      "bg_color": "#F8F8FF",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F8F8FF\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">💃</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">高</text>\n</svg>"
+    },
+    {
+      "id": "舞蹈_04",
+      "name": "谢勇",
+      "gender": "男",
+      "job": "舞蹈",
+      "emoji": "💃",
+      "color": "#800080",
+      "bg_color": "#F8F8FF",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F8F8FF\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">💃</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">谢</text>\n</svg>"
+    },
+    {
+      "id": "舞蹈_05",
+      "name": "何军",
+      "gender": "男",
+      "job": "舞蹈",
+      "emoji": "💃",
+      "color": "#800080",
+      "bg_color": "#F8F8FF",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F8F8FF\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">💃</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">何</text>\n</svg>"
+    },
+    {
+      "id": "舞蹈_06",
+      "name": "何静",
+      "gender": "女",
+      "job": "舞蹈",
+      "emoji": "💃",
+      "color": "#800080",
+      "bg_color": "#F8F8FF",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F8F8FF\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">💃</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">何</text>\n</svg>"
+    },
+    {
+      "id": "舞蹈_07",
+      "name": "于娜",
+      "gender": "女",
+      "job": "舞蹈",
+      "emoji": "💃",
+      "color": "#800080",
+      "bg_color": "#F8F8FF",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F8F8FF\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">💃</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">于</text>\n</svg>"
+    },
+    {
+      "id": "舞蹈_08",
+      "name": "冯萍",
+      "gender": "女",
+      "job": "舞蹈",
+      "emoji": "💃",
+      "color": "#800080",
+      "bg_color": "#F8F8FF",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F8F8FF\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">💃</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">冯</text>\n</svg>"
+    },
+    {
+      "id": "舞蹈_09",
+      "name": "罗艳",
+      "gender": "女",
+      "job": "舞蹈",
+      "emoji": "💃",
+      "color": "#800080",
+      "bg_color": "#F8F8FF",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F8F8FF\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">💃</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">罗</text>\n</svg>"
+    },
+    {
+      "id": "舞蹈_10",
+      "name": "陈雪",
+      "gender": "女",
+      "job": "舞蹈",
+      "emoji": "💃",
+      "color": "#800080",
+      "bg_color": "#F8F8FF",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F8F8FF\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">💃</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">陈</text>\n</svg>"
+    },
+    {
+      "id": "乐队_01",
+      "name": "韩军",
+      "gender": "男",
+      "job": "乐队",
+      "emoji": "🎸",
+      "color": "#A0522D",
+      "bg_color": "#F5F5F5",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5F5\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎸</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">韩</text>\n</svg>"
+    },
+    {
+      "id": "乐队_02",
+      "name": "郭鹏",
+      "gender": "男",
+      "job": "乐队",
+      "emoji": "🎸",
+      "color": "#A0522D",
+      "bg_color": "#F5F5F5",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5F5\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎸</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">郭</text>\n</svg>"
+    },
+    {
+      "id": "乐队_03",
+      "name": "萧明",
+      "gender": "男",
+      "job": "乐队",
+      "emoji": "🎸",
+      "color": "#A0522D",
+      "bg_color": "#F5F5F5",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5F5\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎸</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">萧</text>\n</svg>"
+    },
+    {
+      "id": "乐队_04",
+      "name": "罗涛",
+      "gender": "男",
+      "job": "乐队",
+      "emoji": "🎸",
+      "color": "#A0522D",
+      "bg_color": "#F5F5F5",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5F5\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎸</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">罗</text>\n</svg>"
+    },
+    {
+      "id": "乐队_05",
+      "name": "林明",
+      "gender": "男",
+      "job": "乐队",
+      "emoji": "🎸",
+      "color": "#A0522D",
+      "bg_color": "#F5F5F5",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5F5\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎸</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">林</text>\n</svg>"
+    },
+    {
+      "id": "乐队_06",
+      "name": "刘雪",
+      "gender": "女",
+      "job": "乐队",
+      "emoji": "🎸",
+      "color": "#A0522D",
+      "bg_color": "#F5F5F5",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5F5\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎸</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">刘</text>\n</svg>"
+    },
+    {
+      "id": "乐队_07",
+      "name": "董娜",
+      "gender": "女",
+      "job": "乐队",
+      "emoji": "🎸",
+      "color": "#A0522D",
+      "bg_color": "#F5F5F5",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5F5\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎸</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">董</text>\n</svg>"
+    },
+    {
+      "id": "乐队_08",
+      "name": "黄芳",
+      "gender": "女",
+      "job": "乐队",
+      "emoji": "🎸",
+      "color": "#A0522D",
+      "bg_color": "#F5F5F5",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5F5\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎸</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">黄</text>\n</svg>"
+    },
+    {
+      "id": "乐队_09",
+      "name": "黄颖",
+      "gender": "女",
+      "job": "乐队",
+      "emoji": "🎸",
+      "color": "#A0522D",
+      "bg_color": "#F5F5F5",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5F5\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎸</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">黄</text>\n</svg>"
+    },
+    {
+      "id": "乐队_10",
+      "name": "王敏",
+      "gender": "女",
+      "job": "乐队",
+      "emoji": "🎸",
+      "color": "#A0522D",
+      "bg_color": "#F5F5F5",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F5F5F5\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🎸</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">王</text>\n</svg>"
+    },
+    {
+      "id": "法事_01",
+      "name": "谢波",
+      "gender": "男",
+      "job": "法事",
+      "emoji": "📿",
+      "color": "#4A4A4A",
+      "bg_color": "#F0F0F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F0F0F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">📿</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">谢</text>\n</svg>"
+    },
+    {
+      "id": "法事_02",
+      "name": "冯伟",
+      "gender": "男",
+      "job": "法事",
+      "emoji": "📿",
+      "color": "#4A4A4A",
+      "bg_color": "#F0F0F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F0F0F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">📿</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">冯</text>\n</svg>"
+    },
+    {
+      "id": "法事_03",
+      "name": "韩飞",
+      "gender": "男",
+      "job": "法事",
+      "emoji": "📿",
+      "color": "#4A4A4A",
+      "bg_color": "#F0F0F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F0F0F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">📿</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">韩</text>\n</svg>"
+    },
+    {
+      "id": "法事_04",
+      "name": "韩建",
+      "gender": "男",
+      "job": "法事",
+      "emoji": "📿",
+      "color": "#4A4A4A",
+      "bg_color": "#F0F0F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F0F0F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">📿</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">韩</text>\n</svg>"
+    },
+    {
+      "id": "法事_05",
+      "name": "陈波",
+      "gender": "男",
+      "job": "法事",
+      "emoji": "📿",
+      "color": "#4A4A4A",
+      "bg_color": "#F0F0F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F0F0F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">📿</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">陈</text>\n</svg>"
+    },
+    {
+      "id": "法事_06",
+      "name": "郭娟",
+      "gender": "女",
+      "job": "法事",
+      "emoji": "📿",
+      "color": "#4A4A4A",
+      "bg_color": "#F0F0F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F0F0F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">📿</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">郭</text>\n</svg>"
+    },
+    {
+      "id": "法事_07",
+      "name": "周萍",
+      "gender": "女",
+      "job": "法事",
+      "emoji": "📿",
+      "color": "#4A4A4A",
+      "bg_color": "#F0F0F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F0F0F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">📿</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">周</text>\n</svg>"
+    },
+    {
+      "id": "法事_08",
+      "name": "于慧",
+      "gender": "女",
+      "job": "法事",
+      "emoji": "📿",
+      "color": "#4A4A4A",
+      "bg_color": "#F0F0F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F0F0F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">📿</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">于</text>\n</svg>"
+    },
+    {
+      "id": "法事_09",
+      "name": "朱艳",
+      "gender": "女",
+      "job": "法事",
+      "emoji": "📿",
+      "color": "#4A4A4A",
+      "bg_color": "#F0F0F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F0F0F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">📿</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">朱</text>\n</svg>"
+    },
+    {
+      "id": "法事_10",
+      "name": "萧燕",
+      "gender": "女",
+      "job": "法事",
+      "emoji": "📿",
+      "color": "#4A4A4A",
+      "bg_color": "#F0F0F0",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#F0F0F0\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">📿</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">萧</text>\n</svg>"
+    },
+    {
+      "id": "殡仪馆_01",
+      "name": "韩磊",
+      "gender": "男",
+      "job": "殡仪馆",
+      "emoji": "🏛️",
+      "color": "#5F5F5F",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🏛️</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">韩</text>\n</svg>"
+    },
+    {
+      "id": "殡仪馆_02",
+      "name": "郑杰",
+      "gender": "男",
+      "job": "殡仪馆",
+      "emoji": "🏛️",
+      "color": "#5F5F5F",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🏛️</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">郑</text>\n</svg>"
+    },
+    {
+      "id": "殡仪馆_03",
+      "name": "胡超",
+      "gender": "男",
+      "job": "殡仪馆",
+      "emoji": "🏛️",
+      "color": "#5F5F5F",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🏛️</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">胡</text>\n</svg>"
+    },
+    {
+      "id": "殡仪馆_04",
+      "name": "高鹏",
+      "gender": "男",
+      "job": "殡仪馆",
+      "emoji": "🏛️",
+      "color": "#5F5F5F",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🏛️</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">高</text>\n</svg>"
+    },
+    {
+      "id": "殡仪馆_05",
+      "name": "高华",
+      "gender": "男",
+      "job": "殡仪馆",
+      "emoji": "🏛️",
+      "color": "#5F5F5F",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🏛️</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">高</text>\n</svg>"
+    },
+    {
+      "id": "殡仪馆_06",
+      "name": "黄红",
+      "gender": "女",
+      "job": "殡仪馆",
+      "emoji": "🏛️",
+      "color": "#5F5F5F",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🏛️</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">黄</text>\n</svg>"
+    },
+    {
+      "id": "殡仪馆_07",
+      "name": "王梅",
+      "gender": "女",
+      "job": "殡仪馆",
+      "emoji": "🏛️",
+      "color": "#5F5F5F",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🏛️</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">王</text>\n</svg>"
+    },
+    {
+      "id": "殡仪馆_08",
+      "name": "张颖",
+      "gender": "女",
+      "job": "殡仪馆",
+      "emoji": "🏛️",
+      "color": "#5F5F5F",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🏛️</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">张</text>\n</svg>"
+    },
+    {
+      "id": "殡仪馆_09",
+      "name": "郭红",
+      "gender": "女",
+      "job": "殡仪馆",
+      "emoji": "🏛️",
+      "color": "#5F5F5F",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🏛️</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">郭</text>\n</svg>"
+    },
+    {
+      "id": "殡仪馆_10",
+      "name": "马红",
+      "gender": "女",
+      "job": "殡仪馆",
+      "emoji": "🏛️",
+      "color": "#5F5F5F",
+      "bg_color": "#E8E8E8",
+      "avatar_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\">\n  <rect width=\"200\" height=\"200\" fill=\"#E8E8E8\"/%>\n  <text x=\"100\" y=\"120\" font-size=\"80\" text-anchor=\"middle\">🏛️</text>\n  <text x=\"100\" y=\"180\" font-size=\"24\" text-anchor=\"middle\" fill=\"#666\">马</text>\n</svg>"
+    }
+  ]
+}

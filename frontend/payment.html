@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>支付订单 - 礼纪</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; font-size: 14px; color: #333; }
+        #app { max-width: 430px; margin: 0 auto; min-height: 100vh; background: #f5f5f5; }
+        
+        /* 支付中状态 */
+        .paying-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid #f0f0f0;
+            border-top-color: #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .paying-text { font-size: 18px; font-weight: 500; margin-bottom: 10px; }
+        .paying-desc { color: #666; font-size: 14px; }
+        
+        /* 二维码支付 */
+        .qrcode-container {
+            background: #fff;
+            margin: 20px;
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+        }
+        .qrcode-header { margin-bottom: 20px; }
+        .qrcode-icon { font-size: 48px; margin-bottom: 10px; }
+        .qrcode-title { font-size: 18px; font-weight: 600; }
+        .qrcode-amount { font-size: 32px; font-weight: 700; color: #ff6b6b; margin: 20px 0; }
+        .qrcode-box {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
+            background: #f5f5f5;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+        .qrcode-tip { color: #666; font-size: 13px; line-height: 1.6; }
+        
+        /* H5支付 */
+        .h5pay-container {
+            background: #fff;
+            min-height: 100vh;
+        }
+        .h5pay-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .h5pay-merchant { font-size: 14px; opacity: 0.9; margin-bottom: 10px; }
+        .h5pay-amount { font-size: 40px; font-weight: 700; }
+        .h5pay-body { padding: 20px; }
+        .h5pay-info { background: #f8f8f8; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+        .h5pay-row { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 14px; }
+        .h5pay-row:last-child { margin-bottom: 0; }
+        .h5pay-label { color: #666; }
+        .h5pay-value { color: #333; font-weight: 500; }
+        
+        /* 支付方式 */
+        .pay-method { margin-bottom: 20px; }
+        .pay-method-title { font-size: 14px; color: #666; margin-bottom: 12px; }
+        .pay-method-item {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            background: #f8f8f8;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+        .pay-method-item.active { border-color: #667eea; background: #f0f0ff; }
+        .pay-method-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-right: 12px;
+        }
+        .pay-method-icon.wechat { background: #07c160; color: #fff; }
+        .pay-method-icon.alipay { background: #1677ff; color: #fff; }
+        .pay-method-info { flex: 1; }
+        .pay-method-name { font-size: 15px; font-weight: 500; }
+        .pay-method-desc { font-size: 12px; color: #999; margin-top: 2px; }
+        
+        /* 支付按钮 */
+        .pay-submit-btn {
+            width: 100%;
+            background: #07c160;
+            color: #fff;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .pay-submit-btn.alipay { background: #1677ff; }
+        
+        /* 结果页面 */
+        .result-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+            background: #fff;
+        }
+        .result-icon { font-size: 80px; margin-bottom: 20px; }
+        .result-icon.success { color: #52c41a; }
+        .result-icon.fail { color: #ff4d4f; }
+        .result-title { font-size: 22px; font-weight: 600; margin-bottom: 10px; }
+        .result-desc { color: #666; margin-bottom: 30px; }
+        .result-amount { font-size: 36px; font-weight: 700; color: #333; margin-bottom: 30px; }
+        .result-order { background: #f5f5f5; padding: 15px 20px; border-radius: 8px; margin-bottom: 30px; }
+        .result-order-id { font-size: 13px; color: #666; }
+        .result-actions { display: flex; gap: 15px; }
+        .result-btn {
+            padding: 12px 30px;
+            border-radius: 24px;
+            font-size: 15px;
+            cursor: pointer;
+            border: none;
+        }
+        .result-btn.primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+        }
+        .result-btn.secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 支付处理中 -->
+        <div id="payingState" class="paying-container">
+            <div class="loading-spinner"></div>
+            <div class="paying-text">正在调起支付...</div>
+            <div class="paying-desc">请稍候，正在连接支付网关</div>
+        </div>
+        
+        <!-- 微信支付H5 -->
+        <div id="wechatPay" class="h5pay-container" style="display: none;">
+            <div class="h5pay-header">
+                <div class="h5pay-merchant">礼纪生命礼仪服务平台</div>
+                <div class="h5pay-amount" id="wechatAmount">¥1,500.00</div>
+            </div>
+            
+            <div class="h5pay-body">
+                <div class="h5pay-info">
+                    <div class="h5pay-row">
+                        <span class="h5pay-label">订单编号</span>
+                        <span class="h5pay-value" id="wechatOrderId">LJ20260228123456</span>
+                    </div>
+                    <div class="h5pay-row">
+                        <span class="h5pay-label">服务名称</span>
+                        <span class="h5pay-value" id="wechatService">标准礼仪服务</span>
+                    </div>
+                    <div class="h5pay-row">
+                        <span class="h5pay-label">服务时间</span>
+                        <span class="h5pay-value" id="wechatTime">2026-02-28 14:00</span>
+                    </div>
+                </div>
+                
+                <div class="pay-method"㺎
+                    <div class="pay-method-title">支付方式</div>
+                    <div class="pay-method-item active">
+                        <div class="pay-method-icon wechat">💬</div>
+                        <div class="pay-method-info">
+                            <div class="pay-method-name">微信支付</div>
+                            <div class="pay-method-desc">微信安全支付</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="pay-submit-btn" onclick="processWechatPay()">确认支付</button>
+            </div>
+        </div>
+        
+        <!-- 支付宝H5 -->
+        <div id="alipay" class="h5pay-container" style="display: none;">
+            <div class="h5pay-header">
+                <div class="h5pay-merchant">礼纪生命礼仪服务平台</div>
+                <div class="h5pay-amount" id="alipayAmount">¥1,500.00</div>
+            </div>
+            
+            <div class="h5pay-body">
+                <div class="h5pay-info"㺎
+                    <div class="h5pay-row">
+                        <span class="h5pay-label">订单编号</span>
+                        <span class="h5pay-value" id="alipayOrderId">LJ20260228123456</span>
+                    </div>
+                    <div class="h5pay-row">
+                        <span class="h5pay-label">服务名称</span>
+                        <span class="h5pay-value" id="alipayService">标准礼仪服务</span>
+                    </div>
+                    <div class="h5pay-row">
+                        <span class="h5pay-label">服务时间</span>
+                        <span class="h5pay-value" id="alipayTime">2026-02-28 14:00</span>
+                    </div>
+                </div>
+                
+                <div class="pay-method">
+                    <div class="pay-method-title">支付方式</div>
+                    <div class="pay-method-item active">
+                        <div class="pay-method-icon alipay">💎</div>
+                        <div class="pay-method-info">
+                            <div class="pay-method-name">支付宝</div>
+                            <div class="pay-method-desc">数亿用户的选择</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="pay-submit-btn alipay" onclick="processAlipay()">确认支付</button>
+            </div>
+        </div>
+        
+        <!-- 支付成功 -->
+        <div id="successState" class="result-container" style="display: none;">
+            <div class="result-icon success">✓</div>
+            <div class="result-title">支付成功</div>
+            <div class="result-desc">您的订单已支付成功，服务人员会尽快与您联系</div>
+            <div class="result-amount" id="successAmount">¥1,500.00</div>
+            <div class="result-order">
+                <div class="result-order-id">订单编号：<span id="successOrderId">LJ20260228123456</span></div>
+            </div>
+            <div class="result-actions">
+                <button class="result-btn primary" onclick="viewOrder()">查看订单</button>
+                <button class="result-btn secondary" onclick="backToHome()">返回首页</button>
+            </div>
+        </div>
+        
+        <!-- 支付失败 -->
+        <div id="failState" class="result-container" style="display: none;">
+            <div class="result-icon fail">✗</div>
+            <div class="result-title">支付失败</div>
+            <div class="result-desc" id="failReason">支付过程中出现异常，请重试</div>
+            <div class="result-actions">
+                <button class="result-btn primary" onclick="retryPay()">重新支付</button>
+                <button class="result-btn secondary" onclick="backToHome()">返回首页</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 获取URL参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const orderId = urlParams.get('orderId') || 'LJ' + Date.now();
+        const amount = parseFloat(urlParams.get('amount')) || 1500;
+        const payType = urlParams.get('type') || 'wechat';
+        
+        // 获取订单信息
+        const orderData = JSON.parse(localStorage.getItem('currentOrder') || '{}');
+        
+        // 初始化页面
+        function initPage() {
+            // 隐藏所有状态
+            document.getElementById('payingState').style.display = 'none';
+            document.getElementById('wechatPay').style.display = 'none';
+            document.getElementById('alipay').style.display = 'none';
+            document.getElementById('successState').style.display = 'none';
+            document.getElementById('failState').style.display = 'none';
+            
+            // 根据支付类型显示对应页面
+            if (payType === 'wechat') {
+                showWechatPay();
+            } else if (payType === 'alipay') {
+                showAlipay();
+            }
+        }
+        
+        // 显示微信支付页
+        function showWechatPay() {
+            document.getElementById('wechatPay').style.display = 'block';
+            document.getElementById('wechatAmount').textContent = '¥' + amount.toFixed(2);
+            document.getElementById('wechatOrderId').textContent = orderId;
+            document.getElementById('wechatService').textContent = orderData.service || '礼仪服务';
+            document.getElementById('wechatTime').textContent = 
+                (orderData.date || '2026-02-28') + ' ' + (orderData.time || '14:00');
+        }
+        
+        // 显示支付宝页
+        function showAlipay() {
+            document.getElementById('alipay').style.display = 'block';
+            document.getElementById('alipayAmount').textContent = '¥' + amount.toFixed(2);
+            document.getElementById('alipayOrderId').textContent = orderId;
+            document.getElementById('alipayService').textContent = orderData.service || '礼仪服务';
+            document.getElementById('alipayTime').textContent = 
+                (orderData.date || '2026-02-28') + ' ' + (orderData.time || '14:00');
+        }
+        
+        // 处理微信支付
+        function processWechatPay() {
+            // 显示支付中
+            document.getElementById('wechatPay').style.display = 'none';
+            document.getElementById('payingState').style.display = 'flex';
+            
+            // 模拟支付流程（实际应该调用微信支付API）
+            // 微信支付H5流程：
+            // 1. 后端调用统一下单API获取mweb_url
+            // 2. 跳转到mweb_url
+            // 3. 用户完成支付后跳转到回调页面
+            
+            setTimeout(() => {
+                // 模拟支付结果
+                const success = Math.random() > 0.2; // 80%成功率
+                
+                document.getElementById('payingState').style.display = 'none';
+                
+                if (success) {
+                    showSuccess();
+                } else {
+                    showFail('支付超时，请重试');
+                }
+            }, 3000);
+        }
+        
+        // 处理支付宝
+        function processAlipay() {
+            document.getElementById('alipay').style.display = 'none';
+            document.getElementById('payingState').style.display = 'flex';
+            
+            // 模拟支付宝支付流程
+            setTimeout(() => {
+                const success = Math.random() > 0.2;
+                
+                document.getElementById('payingState').style.display = 'none';
+                
+                if (success) {
+                    showSuccess();
+                } else {
+                    showFail('支付失败，请检查账户余额');
+                }
+            }, 3000);
+        }
+        
+        // 显示支付成功
+        function showSuccess() {
+            document.getElementById('successState').style.display = 'flex';
+            document.getElementById('successAmount').textContent = '¥' + amount.toFixed(2);
+            document.getElementById('successOrderId').textContent = orderId;
+            
+            // 保存订单到历史记录
+            saveOrderToHistory({
+                ...orderData,
+                orderId: orderId,
+                amount: amount,
+                status: 'paid',
+                payTime: new Date().toISOString()
+            });
+        }
+        
+        // 显示支付失败
+        function showFail(reason) {
+            document.getElementById('failState').style.display = 'flex';
+            document.getElementById('failReason').textContent = reason;
+        }
+        
+        // 保存订单到历史
+        function saveOrderToHistory(order) {
+            let history = JSON.parse(localStorage.getItem('orderHistory') || '[]');
+            history.unshift(order);
+            localStorage.setItem('orderHistory', JSON.stringify(history));
+        }
+        
+        // 查看订单
+        function viewOrder() {
+            window.location.href = 'orders.html';
+        }
+        
+        // 返回首页
+        function backToHome() {
+            window.location.href = 'index.html';
+        }
+        
+        // 重试支付
+        function retryPay() {
+            initPage();
+        }
+        
+        // 页面加载
+        document.addEventListener('DOMContentLoaded', initPage);
+    </script>
+</body>
+</html>

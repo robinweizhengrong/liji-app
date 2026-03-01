@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+  <rect width="200" height="200" fill="#E8E8E8"/%>
+  <text x="100" y="120" font-size="80" text-anchor="middle">🎤</text>
+  <text x="100" y="180" font-size="24" text-anchor="middle" fill="#666">张</text>
+</svg>

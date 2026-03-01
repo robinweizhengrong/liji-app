@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>服务详情 - 礼纪</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; font-size: 14px; color: #333; }
+        #app { max-width: 430px; margin: 0 auto; min-height: 100vh; background: #fff; }
+        
+        /* 顶部导航 */
+        .header {
+            background: #fff;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #f0f0f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .back-btn { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 20px; cursor: pointer; }
+        .header-title { flex: 1; text-align: center; font-size: 16px; font-weight: 600; }
+        .share-btn { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+        
+        /* 服务者信息卡 */
+        .provider-card {
+            background: #fff;
+            padding: 20px 15px;
+            display: flex;
+            gap: 15px;
+        }
+        .provider-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+        .provider-info { flex: 1; }
+        .provider-name { font-size: 18px; font-weight: 600; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+        .verified-badge { background: #52c41a; color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 10px; }
+        .provider-title { color: #666; font-size: 13px; margin-bottom: 8px; }
+        .provider-stats { display: flex; gap: 15px; }
+        .stat-item { text-align: center; }
+        .stat-value { font-size: 16px; font-weight: 600; color: #333; }
+        .stat-label { font-size: 11px; color: #999; }
+        
+        /* 评分 */
+        .rating-section {
+            background: #fff;
+            padding: 15px;
+            border-top: 8px solid #f5f5f5;
+        }
+        .rating-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+        .rating-score { display: flex; align-items: baseline; gap: 8px; }
+        .score-value { font-size: 32px; font-weight: 700; color: #ff6b6b; }
+        .score-total { font-size: 14px; color: #999; }
+        .stars { color: #ffc107; font-size: 14px; }
+        .rating-count { color: #666; font-size: 13px; }
+        
+        /* 服务项目 */
+        .service-section {
+            background: #fff;
+            padding: 15px;
+            border-top: 8px solid #f5f5f5;
+        }
+        .section-title { font-size: 16px; font-weight: 600; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+        .section-title::before { content: ''; width: 4px; height: 18px; background: #667eea; border-radius: 2px; }
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .service-item:last-child { border-bottom: none; }
+        .service-info h4 { font-size: 15px; margin-bottom: 4px; }
+        .service-desc { font-size: 12px; color: #999; }
+        .service-price { text-align: right; }
+        .price-value { font-size: 18px; font-weight: 600; color: #ff6b6b; }
+        .price-unit { font-size: 12px; color: #999; }
+        .select-btn {
+            background: #fff;
+            border: 1px solid #667eea;
+            color: #667eea;
+            padding: 6px 16px;
+            border-radius: 16px;
+            font-size: 13px;
+            margin-top: 8px;
+            cursor: pointer;
+        }
+        .select-btn.active {
+            background: #667eea;
+            color: #fff;
+        }
+        
+        /* 作品案例 */
+        .works-section {
+            background: #fff;
+            padding: 15px;
+            border-top: 8px solid #f5f5f5;
+        }
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+        .work-item {
+            aspect-ratio: 1;
+            background: #f5f5f5;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: #ddd;
+            cursor: pointer;
+        }
+        
+        /* 评价 */
+        .reviews-section {
+            background: #fff;
+            padding: 15px;
+            border-top: 8px solid #f5f5f5;
+        }
+        .review-item { padding: 15px 0; border-bottom: 1px solid #f5f5f5; }
+        .review-item:last-child { border-bottom: none; }
+        .review-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+        .reviewer-avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 14px; }
+        .reviewer-info { flex: 1; }
+        .reviewer-name { font-size: 14px; font-weight: 500; }
+        .review-time { font-size: 11px; color: #999; }
+        .review-rating { color: #ffc107; font-size: 12px; }
+        .review-content { font-size: 14px; line-height: 1.6; color: #333; }
+        
+        /* 底部操作栏 */
+        .bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 430px;
+            background: #fff;
+            padding: 10px 15px;
+            display: flex;
+            gap: 10px;
+            border-top: 1px solid #f0f0f0;
+            padding-bottom: calc(10px + env(safe-area-inset-bottom));
+        }
+        .action-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-contact { background: #f0f0f0; color: #333; }
+        .btn-book { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; }
+        
+        .content-area { padding-bottom: 80px; }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 顶部导航 -->
+        <div class="header">
+            <div class="back-btn" onclick="history.back()">←</div>
+            <div class="header-title">服务详情</div>
+            <div class="share-btn">⋮</div>
+        </div>
+        
+        <div class="content-area">
+            <!-- 服务者信息 -->
+            <div class="provider-card">
+                <div class="provider-avatar" id="providerAvatar">👤</div>
+                <div class="provider-info">
+                    <div class="provider-name">
+                        <span id="providerName">张明远</span>
+                        <span class="verified-badge">认证</span>
+                    </div>
+                    <div class="provider-title" id="providerTitle">高级礼仪师 · 10年经验</div>
+                    <div class="provider-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">286</div>
+                            <div class="stat-label">服务次数</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">98%</div>
+                            <div class="stat-label">好评率</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">5年</div>
+                            <div class="stat-label">平台资历</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 评分 -->
+            <div class="rating-section">
+                <div class="rating-header">
+                    <div class="rating-score">
+                        <span class="score-value">4.9</span>
+                        <span class="score-total">/5.0</span>
+                    </div>
+                    <div>
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">基于 127 条评价</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 服务项目 -->
+            <div class="service-section">
+                <div class="section-title">服务项目</div>
+                <div class="service-list" id="serviceList">
+                    <div class="service-item">
+                        <div class="service-info">
+                            <h4>基础礼仪服务</h4>
+                            <div class="service-desc">包含礼仪主持、流程引导</div>
+                        </div>
+                        <div class="service-price">
+                            <div class="price-value">¥800</div>
+                            <div class="price-unit">/场</div>
+                            <button class="select-btn" onclick="selectService(this)">选择</button>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-info">
+                            <h4>标准礼仪服务</h4>
+                            <div class="service-desc">包含礼仪主持、流程策划、现场协调</div>
+                        </div>
+                        <div class="service-price">
+                            <div class="price-value">¥1,500</div>
+                            <div class="price-unit">/场</div>
+                            <button class="select-btn" onclick="selectService(this)">选择</button>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-info">
+                            <h4>尊享礼仪服务</h4>
+                            <div class="service-desc">全流程定制服务，含家属安抚</div>
+                        </div>
+                        <div class="service-price">
+                            <div class="price-value">¥3,000</div>
+                            <div class="price-unit">/场</div>
+                            <button class="select-btn" onclick="selectService(this)">选择</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 作品案例 -->
+            <div class="works-section">
+                <div class="section-title">作品案例</div>
+                <div class="works-grid">
+                    <div class="work-item">📸</div>
+                    <div class="work-item">📸</div>
+                    <div class="work-item">📸</div>
+                    <div class="work-item">📸</div>
+                    <div class="work-item">📸</div>
+                    <div class="work-item">📸</div>
+                </div>
+            </div>
+            
+            <!-- 用户评价 -->
+            <div class="reviews-section">
+                <div class="section-title">用户评价</div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">李</div>
+                        <div class="reviewer-info">
+                            <div class="reviewer-name">李先生</div>
+                            <div class="review-time">2026-02-20</div>
+                        </div>
+                        <div class="review-rating">★★★★★</div>
+                    </div>
+                    <div class="review-content">张老师非常专业，整个仪式进行得很圆满，家属都很满意。服务态度好，细节处理到位。</div>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">王</div>
+                        <div class="reviewer-info">
+                            <div class="reviewer-name">王女士</div>
+                            <div class="review-time">2026-02-15</div>
+                        </div>
+                        <div class="review-rating">★★★★★</div>
+                    </div>
+                    <div class="review-content">很感谢张老师的帮助，在这个艰难的时期给了我们很多支持和安慰。</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 底部操作栏 -->
+        <div class="bottom-bar">
+            <button class="action-btn btn-contact" onclick="contactProvider()">在线咨询</button>
+            <button class="action-btn btn-book" onclick="bookService()">立即预约</button>
+        </div>
+    </div>
+    
+    <script>
+        // 从URL获取参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const providerId = urlParams.get('id');
+        const providerType = urlParams.get('type');
+        
+        // 虚拟数据
+        const providers = {
+            'etiquette': { name: '张明远', title: '高级礼仪师 · 10年经验', avatar: '张' },
+            'host': { name: '李雅琴', title: '资深主持人 · 8年经验', avatar: '李' },
+            'planner': { name: '王建华', title: '专业策划师 · 12年经验', avatar: '王' },
+        };
+        
+        // 页面加载
+        document.addEventListener('DOMContentLoaded', function() {
+            if (providerType && providers[providerType]) {
+                const p = providers[providerType];
+                document.getElementById('providerName').textContent = p.name;
+                document.getElementById('providerTitle').textContent = p.title;
+                document.getElementById('providerAvatar').textContent = p.avatar;
+            }
+        });
+        
+        // 选择服务
+        let selectedService = null;
+        function selectService(btn) {
+            document.querySelectorAll('.select-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selectedService = btn.closest('.service-item').querySelector('h4').textContent;
+        }
+        
+        // 联系服务者
+        function contactProvider() {
+            alert('客服功能开发中，请拨打电话：400-888-8888');
+        }
+        
+        // 预约服务
+        function bookService() {
+            if (!selectedService) {
+                alert('请先选择服务项目');
+                return;
+            }
+            const providerName = document.getElementById('providerName').textContent;
+            window.location.href = `booking.html?provider=${encodeURIComponent(providerName)}&service=${encodeURIComponent(selectedService)}`;
+        }
+    </script>
+</body>
+</html>

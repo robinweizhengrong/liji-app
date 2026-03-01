@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>礼纪 - 生命礼仪管家</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary-color: #5a6c7d;
+            --primary-light: #7a8c9d;
+            --vip-color: #e6a23c;
+            --bg-color: #f5f5f5;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-secondary: #666666;
+            --border-color: #e8e8e8;
+            --success-color: #67c23a;
+            --warning-color: #e6a23c;
+            --danger-color: #f56c6c;
+        }
+        
+        html, body {
+            height: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            font-size: 16px;
+            color: var(--text-color);
+            background: var(--bg-color);
+        }
+        
+        #app {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            max-width: 430px;
+            margin: 0 auto;
+            background: var(--bg-color);
+        }
+        
+        /* 登录页 */
+        .login-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 40px;
+            background: linear-gradient(135deg, #1a5f4a 0%, #2d7d62 100%);
+        }
+        
+        .login-logo {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+        
+        .login-title {
+            font-size: 28px;
+            color: white;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+        
+        .login-form {
+            width: 100%;
+            max-width: 320px;
+        }
+        
+        .login-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            background: rgba(255,255,255,0.95);
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: white;
+            color: var(--primary-color);
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        .login-link {
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        /* 顶部导航 */
+        .header {
+            background: var(--card-bg);
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-title { 
+            font-size: 18px; 
+            font-weight: 600; 
+            color: var(--text-color);
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .header-btn {
+            font-size: 14px;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        /* 主内容区 */
+        .main-content {
+            flex: 1;
+            overflow-y: auto;
+            padding-bottom: 80px;
+        }
+        
+        /* 页面切换 */
+        .page { display: none; }
+        .page.active { display: block; }
+        
+        /* VIP标签 */
+        .vip-tag {
+            background: linear-gradient(135deg, #e6a23c 0%, #f39c12 100%);
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+        
+        /* 锁定图标 */
+        .lock-icon {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-left: 4px;
+        }
+        
+        /* 日历样式 */
+        .calendar-header {
+            background: var(--card-bg);
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .calendar-nav {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .calendar-nav button {
+            background: none;
+            border: none;
+            font-size: 18px;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        .current-month {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .view-toggle {
+            display: flex;
+            background: var(--bg-color);
+            border-radius: 20px;
+            padding: 2px;
+        }
+        
+        .view-toggle button {
+            padding: 6px 16px;
+            border: none;
+            background: transparent;
+            font-size: 14px;
+            border-radius: 18px;
+            cursor: pointer;
+        }
+        
+        .view-toggle button.active {
+            background: var(--card-bg);
+            color: var(--primary-color);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .calendar-body {
+            background: var(--card-bg);
+            padding: 0 16px 16px;
+        }
+        
+        .weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .weekdays span {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+            padding: 8px 0;
+        }
+        
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .calendar-day .day-number {
+            font-size: 16px;
+            margin-bottom: 2px;
+        }
+        
+        .calendar-day .day-status {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+        
+        .calendar-day.has-booking {
+            background: rgba(90, 108, 125, 0.1);
+        }
+        
+        .calendar-day.has-booking .day-status {
+            background: var(--primary-color);
+        }
+        
+        .calendar-day.is-today {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .calendar-day.is-today .day-status {
+            background: white;
+        }
+        
+        /* 档期列表 */
+        .booking-list {
+            background: var(--card-bg);
+            margin-top: 8px;
+            padding: 16px;
+        }
+        
+        .booking-list-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .booking-list-title {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .booking-count {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .booking-item {
+            display: flex;
+            padding: 16px;
+            background: var(--bg-color);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+        
+        .booking-time {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-right: 16px;
+            border-right: 1px solid var(--border-color);
+            min-width: 60px;
+        }
+        
+        .booking-time .start {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .booking-time .end {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+        
+        .booking-info {
+            flex: 1;
+            padding-left: 16px;
+        }
+        
+        .booking-type {
+            display: inline-block;
+            padding: 2px 8px;
+            background: rgba(90, 108, 125, 0.1);
+            color: var(--primary-color);
+            font-size: 12px;
+            border-radius: 4px;
+            margin-bottom: 6px;
+        }
+        
+        .booking-customer {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        
+        .booking-location {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        .booking-status {
+            display: flex;
+            align-items: center;
+        }
+        
+        .status-badge {
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+        }
+        
+        .status-badge.booked {
+            background: rgba(90, 108, 125, 0.1);
+            color: var(--status-booked);
+        }
+        
+        /* 限制提示 */
+        .limit-banner {
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe4b3 100%);
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 8px 16px;
+            border-radius: 8px;
+        }
+        
+        .limit-text {
+            font-size: 13px;
+            color: var(--text-color);
+        }
+        
+        .limit-btn {
+            background: var(--vip-color);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        
+        /* 底部导航 */
+        .tab-bar {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 430px;
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-around;
+            padding: 8px 0;
+            z-index: 100;
+        }
+        
+        .tab-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 4px 16px;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+        
+        .tab-item.active {
+            color: var(--primary-color);
+        }
+        
+        .tab-icon {
+            font-size: 22px;
+            margin-bottom: 2px;
+        }
+        
+        .tab-label {
+            font-size: 11px;
+        }
+        
+        /* 悬浮按钮 */
+        .fab {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(90, 108, 125, 0.4);
+            cursor: pointer;
+            z-index: 100;
+        }
+        
+        /* 模态框 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: white;
+            width: 100%;
+            max-width: 430px;
+            border-radius: 20px 20px 0 0;
+            padding: 20px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .modal-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .modal-close {
+            font-size: 24px;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+        
+        .form-group {
+            margin-bottom: 16px;
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+        
+        .form-input, .form-select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        .form-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        .form-btn.vip {
+            background: var(--vip-color);
+        }
+        
+        /* 用户等级卡片 */
+        .user-level-card {
+            background: linear-gradient(135deg, #5a6c7d 0%, #7a8c9d 100%);
+            padding: 20px;
+            color: white;
+            border-radius: 12px;
+            margin: 16px;
+        }
+        
+        .user-level-name {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .user-level-desc {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .user-level-progress {
+            margin-top: 12px;
+            height: 6px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .user-level-progress-bar {
+            height: 100%;
+            background: white;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 登录页 -->
+        <div class="page active" id="page-login">
+            <div class="login-page">
+                <div class="login-logo">🕊</div>
+                <div class="login-title">礼纪</div>
+                <div class="login-form">
+                    <input type="text" class="login-input" placeholder="手机号/邮箱" id="login-username">
+                    <input type="password" class="login-input" placeholder="密码" id="login-password">
+                    <button class="login-btn" onclick="handleLogin()">登 录</button>
+                    <div class="login-link">还没有账号？立即注册</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 档期日历页面 -->
+        <div class="page" id="page-home">
+            <div class="header">
+                <div class="header-title">档期日历</div>
+                <div class="header-actions">
+                    <span class="header-btn">筛选</span>
+                    <span class="header-btn" onclick="showAddBookingModal()">+</span>
+                </div>
+            </div>
+            
+            <div class="main-content">
+                <!-- 限制提示（免费用户显示） -->
+                <div class="limit-banner" id="booking-limit-banner">
+                    <span class="limit-text">已用 2/30 条档期</span>
+                    <button class="limit-btn" onclick="showVIPModal()">升级VIP</button>
+                </div>
+                
+                <!-- 日历头部 -->
+                <div class="calendar-header">
+                    <div class="calendar-nav">
+                        <button onclick="changeMonth(-1)">❮</button>
+                        <span class="current-month" id="current-month">2025年2月</span>
+                        <button onclick="changeMonth(1)">❯</button>
+                    </div>
+                    <div class="view-toggle">
+                        <button class="active">月</button>
+                        <button>周</button>
+                    </div>
+                </div>
+                
+                <!-- 日历主体 -->
+                <div class="calendar-body">
+                    <div class="weekdays">
+                        <span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span>
+                    </div>
+                    <div class="calendar-grid" id="calendar-grid">
+                        <!-- JS动态生成 -->
+                    </div>
+                </div>
+                
+                <!-- 今日档期列表 -->
+                <div class="booking-list">
+                    <div class="booking-list-header">
+                        <span class="booking-list-title">今日档期</span>
+                        <span class="booking-count" id="today-count">共0场</span>
+                    </div>
+                    <div id="booking-list-container">
+                        <!-- JS动态生成 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 工具箱页面 -->
+        <div class="page" id="page-tools">
+            <div class="header">
+                <div class="header-title">工具箱</div>
+            </div>
+            
+            <div class="main-content">
+                <!-- 用户等级卡片 -->
+                <div class="user-level-card">
+                    <div class="user-level-name">免费会员</div>
+                    <div class="user-level-desc">升级VIP解锁全部功能</div>
+                    <div class="user-level-progress">
+                        <div class="user-level-progress-bar" style="width: 20%"></div>
+                    </div>
+                </div>
+                
+                <!-- 主持词库 -->
+                <div class="tool-section" style="background: white; margin: 8px 0; padding: 16px;">
+                    <div style="font-size: 16px; font-weight: 600; margin-bottom: 16px; display: flex; align-items: center;">
+                        📝 主持词库 <span class="vip-tag">VIP</span>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+                        <div class="tool-item" onclick="showScriptDetail('farewell')">
+                            <div style="width: 56px; height: 56px; background: #f5f5f5; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 8px;">📜</span></div>
+                            <div style="font-size: 13px; text-align: center;">告别仪式</div>
+                        </div>
+                        
+                        <div class="tool-item" onclick="showVIPModal()">
+                            <div style="width: 56px; height: 56px; background: #f5f5f5; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 8px; position: relative;">🙏<span class="lock-icon" style="position: absolute; bottom: 2px; right: 2px;">🔒</span></div>
+                            <div style="font-size: 13px; text-align: center;">守灵主持</div>
+                        </div>
+                        
+                        <div class="tool-item" onclick="showVIPModal()">
+                            <div style="width: 56px; height: 56px; background: #f5f5f5; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 8px; position: relative;">⚰<span class="lock-icon" style="position: absolute; bottom: 2px; right: 2px;">🔒</span></div>
+                            <div style="font-size: 13px; text-align: center;">出殡主持</div>
+                        </div>
+                        
+                        <div class="tool-item" onclick="showVIPModal()">
+                            <div style="width: 56px; height: 56px; background: #f5f5f5; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 8px; position: relative;">🌱<span class="lock-icon" style="position: absolute; bottom: 2px; right: 2px;">🔒</span></div>
+                            <div style="font-size: 13px; text-align: center;">下葬仪式</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 更多工具... -->
+            </div>
+        </div>
+        
+        <!-- 其他页面省略... -->
+        
+        <!-- 底部导航 -->
+        <div class="tab-bar" id="tab-bar" style="display: none;">
+            <div class="tab-item active" onclick="switchTab('home')">
+                <span class="tab-icon">📅</span>
+                <span class="tab-label">档期</span>
+            </div>
+            <div class="tab-item" onclick="switchTab('tools')">
+                <span class="tab-icon">🛠</span>
+                <span class="tab-label">工具</span>
+            </div>
+            <div class="tab-item" onclick="switchTab('customer')">
+                <span class="tab-icon">👥</span>
+                <span class="tab-label">客户</span>
+            </div>
+            <div class="tab-item" onclick="switchTab('profile')">
+                <span class="tab-icon">👤</span>
+                <span class="tab-label">我的</span>
+            </div>
+        </div>
+        
+        <!-- 添加档期模态框 -->
+        <div class="modal" id="add-booking-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title">新增档期</span>
+                    <span class="modal-close" onclick="closeModal('add-booking-modal')">×</span>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">服务类型</label>
+                    <select class="form-select" id="booking-type">
+                        <option value="vigil">守灵</option>
+                        <option value="farewell">告别仪式</option>
+                        <option value="out">出殡</option>
+                        <option value="burial">下葬</option>
+                        <option value="memorial">祭祀</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">开始时间</label>
+                    <input type="datetime-local" class="form-input" id="booking-start">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">客户姓名</label>
+                    <input type="text" class="form-input" id="booking-customer" placeholder="请输入客户姓名">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">联系电话</label>
+                    <input type="tel" class="form-input" id="booking-phone" placeholder="请输入联系电话">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">服务地点</label>
+                    <input type="text" class="form-input" id="booking-location" placeholder="请输入服务地点">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">服务金额</label>
+                    <input type="number" class="form-input" id="booking-amount" placeholder="请输入金额">
+                </div>
+                
+                <button class="form-btn" onclick="submitBooking()">保存</button>
+            </div>
+        </div>
+        
+        <!-- VIP升级模态框 -->
+        <div class="modal" id="vip-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title">升级VIP</span>
+                    <span class="modal-close" onclick="closeModal('vip-modal')">×</span>
+                </div>
+                
+                <div style="text-align: center; padding: 20px;">
+                    <div style="font-size: 48px; margin-bottom: 16px;">👑</div>
+                    <div style="font-size: 20px; font-weight: 600; margin-bottom: 8px;">VIP会员</div>
+                    <div style="font-size: 14px; color: var(--text-secondary); margin-bottom: 24px;">解锁全部功能，提升工作效率</div>
+                    
+                    <div style="background: #f5f5f5; padding: 16px; border-radius: 12px; margin-bottom: 20px; text-align: left;">
+                        <div style="margin-bottom: 12px;">✅ 无限档期管理</div>
+                        <div style="margin-bottom: 12px;">✅ 无限客户管理</div>
+                        <div style="margin-bottom: 12px;">✅ 全部主持词库</div>
+                        <div style="margin-bottom: 12px;">✅ 全部悼词模板</div>
+                        <div>✅ 无广告打扰</div>
+                    </div>
+                    
+                    <div style="font-size: 24px; font-weight: 600; color: var(--vip-color); margin-bottom: 8px;">¥98/年</div>
+                    
+                    <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 20px;">约8.2元/月，每天不到3毛钱</div>
+                    
+                    <button class="form-btn vip" onclick="upgradeVIP()">立即开通</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // ==================== 全局状态 ====================
+        const AppState = {
+            currentUser: null,
+            currentTab: 'home',
+            bookings: [],
+            customers: [],
+            scripts: [],
+            isVIP: false,
+            bookingLimit: 30,
+            bookingCount: 0
+        };
+        
+        // ==================== 登录功能 ====================
+        function handleLogin() {
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+            
+            if (!username || !password) {
+                showToast('请输入用户名和密码');
+                return;
+            }
+            
+            // 模拟登录
+            AppState.currentUser = {
+                id: 'user_001',
+                name: username,
+                level: 'free'
+            };
+            
+            // 隐藏登录页，显示主界面
+            document.getElementById('page-login').classList.remove('active');
+            document.getElementById('page-home').classList.add('active');
+            document.getElementById('tab-bar').style.display = 'flex';
+            
+            showToast('登录成功');
+            initApp();
+        }
+        
+        // ==================== 初始化应用 ====================
+        function initApp() {
+            generateCalendar();
+            loadBookings();
+            updateBookingLimit();
+        }
+        
+        // ==================== 日历功能 ====================
+        function generateCalendar() {
+            const grid = document.getElementById('calendar-grid');
+            const daysInMonth = 28;
+            let html = '';
+            
+            // 前导空格
+            for (let i = 0; i < 5; i++) {
+                html += `<div class="calendar-day"><span class="day-number">${26 + i}</span></div>`;
+            }
+            
+            // 当月日期
+            for (let i = 1; i <= daysInMonth; i++) {
+                const hasBooking = [1, 2, 4, 8, 10, 15, 18, 23].includes(i);
+                const isToday = i === 8;
+                
+                html += `
+                    <div class="calendar-day ${hasBooking ? 'has-booking' : ''} ${isToday ? 'is-today' : ''}">
+                        <span class="day-number">${i}</span>
+                        ${hasBooking ? '<span class="day-status"></span>' : ''}
+                    </div>
+                `;
+            }
+            
+            grid.innerHTML = html;
+        }
+        
+        function changeMonth(delta) {
+            showToast('切换月份功能开发中');
+        }
+        
+        // ==================== 档期管理 ====================
+        function loadBookings() {
+            // 模拟数据
+            AppState.bookings = [
+                {
+                    id: 1,
+                    type: 'vigil',
+                    typeName: '守灵',
+                    start: '09:30',
+                    end: '11:00',
+                    customer: '王家属',
+                    location: '龙华殡仪馆',
+                    status: 'booked'
+                },
+                {
+                    id: 2,
+                    type: 'farewell',
+                    typeName: '告别仪式',
+                    start: '14:00',
+                    end: '15:30',
+                    customer: '李家属',
+                    location: '西郊殡仪馆',
+                    status: 'booked'
+                }
+            ];
+            
+            renderBookingList();
+        }
+        
+        function renderBookingList() {
+            const container = document.getElementById('booking-list-container');
+            const count = AppState.bookings.length;
+            
+            document.getElementById('today-count').textContent = `共${count}场`;
+            
+            if (count === 0) {
+                container.innerHTML = '<div style="text-align: center; padding: 40px; color: #999;">暂无档期</div>';
+                return;
+            }
+            
+            container.innerHTML = AppState.bookings.map(booking => `
+                <div class="booking-item" onclick="showBookingDetail(${booking.id})">
+                    <div class="booking-time">
+                        <span class="start">${booking.start}</span>
+                        <span class="end">${booking.end}</span>
+                    </div>
+                    <div class="booking-info">
+                        <span class="booking-type ${booking.type}">${booking.typeName}</span>
+                        <div class="booking-customer">${booking.customer}</div>
+                        <div class="booking-location">📍 ${booking.location}</div>
+                    </div>
+                    <div class="booking-status">
+                        <span class="status-badge ${booking.status}">已接</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function updateBookingLimit() {
+            const count = AppState.bookings.length;
+            const limit = AppState.bookingLimit;
+            
+            document.querySelector('#booking-limit-banner .limit-text').textContent = 
+                `已用 ${count}/${limit} 条档期`;
+            
+            if (count >= limit && !AppState.isVIP) {
+                showToast('档期数量已达上限，请升级VIP');
+            }
+        }
+        
+        // ==================== 模态框 ====================
+        function showAddBookingModal() {
+            if (AppState.bookings.length >= AppState.bookingLimit && !AppState.isVIP) {
+                showVIPModal();
+                return;
+            }
+            document.getElementById('add-booking-modal').classList.add('active');
+        }
+        
+        function showVIPModal() {
+            document.getElementById('vip-modal').classList.add('active');
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+        
+        function submitBooking() {
+            const type = document.getElementById('booking-type').value;
+            const start = document.getElementById('booking-start').value;
+            const customer = document.getElementById('booking-customer').value;
+            const phone = document.getElementById('booking-phone').value;
+            const location = document.getElementById('booking-location').value;
+            const amount = document.getElementById('booking-amount').value;
+            
+            if (!customer || !start) {
+                showToast('请填写必填项');
+                return;
+            }
+            
+            // 模拟保存
+            AppState.bookings.push({
+                id: Date.now(),
+                type: type,
+                typeName: document.querySelector(`#booking-type option[value="${type}"]`).textContent,
+                start: start.split('T')[1].substring(0, 5),
+                end: '',
+                customer: customer,
+                location: location || '未指定',
+                status: 'booked'
+            });
+            
+            AppState.bookingCount++;
+            
+            renderBookingList();
+            updateBookingLimit();
+            closeModal('add-booking-modal');
+            showToast('档期添加成功');
+            
+            // 清空表单
+            document.getElementById('booking-customer').value = '';
+            document.getElementById('booking-phone').value = '';
+            document.getElementById('booking-location').value = '';
+            document.getElementById('booking-amount').value = '';
+        }
+        
+        function showBookingDetail(id) {
+            showToast(`查看档期详情 ${id}`);
+        }
+        
+        function showScriptDetail(type) {
+            showToast(`查看主持词 ${type}`);
+        }
+        
+        function upgradeVIP() {
+            showToast('VIP升级功能开发中');
+            closeModal('vip-modal');
+        }
+        
+        // ==================== Tab切换 ====================
+        function switchTab(tab) {
+            AppState.currentTab = tab;
+            
+            // 隐藏所有页面
+            document.querySelectorAll('.page').forEach(p => {
+                if (p.id !== 'page-login') {
+                    p.classList.remove('active');
+                }
+            });
+            
+            // 移除所有tab激活状态
+            document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'))
+            
+            // 激活对应页面和tab
+            document.getElementById('page-' + tab).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+        
+        // ==================== 工具函数 ====================
+        function showToast(msg) {
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(0,0,0,0.8);
+                color: white;
+                padding: 12px 24px;
+                border-radius: 8px;
+                z-index: 10000;
+                font-size: 14px;
+            `;
+            toast.textContent = msg;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 2000);
+        }
+        
+        // ==================== 初始化 ====================
+        document.addEventListener('DOMContentLoaded', () => {
+            // 检查登录状态
+            if (AppState.currentUser) {
+                document.getElementById('page-login').classList.remove('active');
+                document.getElementById('page-home').classList.add('active');
+                document.getElementById('tab-bar').style.display = 'flex';
+                initApp();
+            }
+        });
+    </script>
+</body>
+</html>
