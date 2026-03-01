@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>交流圈 - 礼纪</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; }
+        .header { background: #fff; padding: 15px; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
+        .header-title { font-size: 18px; font-weight: 600; text-align: center; }
+        .post-list { padding: 10px; }
+        .post-card { background: #fff; margin-bottom: 10px; padding: 15px; border-radius: 8px; }
+        .post-header { display: flex; align-items: center; margin-bottom: 10px; }
+        .post-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 10px; }
+        .post-user { flex: 1; }
+        .post-name { font-weight: 600; }
+        .post-badge { background: #e8f5e9; color: #4caf50; padding: 2px 8px; border-radius: 4px; font-size: 12px; margin-left: 5px; }
+        .post-meta { font-size: 12px; color: #999; margin-top: 2px; }
+        .follow-btn { background: #f5f5f5; padding: 5px 15px; border-radius: 15px; font-size: 13px; color: #333; }
+        .post-content { margin: 10px 0; line-height: 1.6; }
+        .post-images { display: flex; gap: 5px; margin-top: 10px; }
+        .post-img { width: 100px; height: 100px; background: #f5f5f5; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 24px; overflow: hidden; }
+        .post-img img { width: 100%; height: 100%; object-fit: cover; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-title">交流圈</div>
+    </div>
+    <div class="post-list">
+        
+    <div class="post-card" onclick="goToDetail('post_lj_012_0', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">黄</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">黄伟</span>
+                    <span class="post-badge">主持人</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注黄伟')">+关注</div>
+        </div>
+        <div class="post-content">今天主持了一场{仪式类型}，{场景描述}。在追思会上，真诚地陪伴比华丽的辞藻更重要。</div>
+        <div class="post-images">
+            <img src="assets/scenes_video/主持人/03_殯葬司儀主持__000100.jpg" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_022_2', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">邓</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">邓强</span>
+                    <span class="post-badge">礼仪师</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注邓强')">+关注</div>
+        </div>
+        <div class="post-content">礼仪服务中，仪态要端庄得体。细节决定品质，我们用心对待每一个环节。</div>
+        <div class="post-images">
+            <div class="post-img">🕯️</div><div class="post-img">🌸</div><div class="post-img">⚰️</div>
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_026_2', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">丁</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">丁伟</span>
+                    <span class="post-badge">礼仪师</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注丁伟')">+关注</div>
+        </div>
+        <div class="post-content">作为礼仪师，每一次告别都是一次生命的教育。用专业和温暖，陪伴每一个家庭度过艰难时刻。</div>
+        <div class="post-images">
+            <img src="assets/scenes_video/策划师_主持人_礼仪师/台湾_三清生命禮儀司儀 -小靈堂[IRkuHvA_30.jpg" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_061_2', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">唐</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">唐娜</span>
+                    <span class="post-badge">摄影师</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注唐娜')">+关注</div>
+        </div>
+        <div class="post-content">殡葬摄影需要构图要简洁，突出主题。在庄重与温情之间找到平衡。</div>
+        <div class="post-images">
+            <div class="post-img">🕯️</div><div class="post-img">🌸</div><div class="post-img">⚰️</div>
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_057_0', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">平</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">平丽</span>
+                    <span class="post-badge">摄像师</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注平丽')">+关注</div>
+        </div>
+        <div class="post-content">殡葬摄像需要注意{技术要点}。在尊重逝者的同时，记录珍贵的回忆。</div>
+        <div class="post-images">
+            <div class="post-img">🕯️</div><div class="post-img">🌸</div><div class="post-img">⚰️</div>
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_003_0', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">王</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">王芳</span>
+                    <span class="post-badge">策划师</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注王芳')">+关注</div>
+        </div>
+        <div class="post-content">今天为王芳策划了一场特别的告别仪式。安排了温馨的追思环节，家属连声道谢。生命的最后一程，值得被温柔对待。</div>
+        <div class="post-images">
+            <img src="assets/scenes_video/策划师/Catholic Cremation Dos and Don'ts │ Funeral Fact_000200.jpg" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_066_1', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">于</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">于强</span>
+                    <span class="post-badge">摄影师</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注于强')">+关注</div>
+        </div>
+        <div class="post-content">分享今天拍摄的灵堂布置。{拍摄说明}，用照片留住最后的记忆。📷</div>
+        <div class="post-images">
+            <div class="post-img">🕯️</div><div class="post-img">🌸</div><div class="post-img">⚰️</div>
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_042_1', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">龙</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">龙伟</span>
+                    <span class="post-badge">花艺师</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注龙伟')">+关注</div>
+        </div>
+        <div class="post-content">为李奶奶设计了灵堂花艺。精心设计的花艺造型，希望能为逝者营造一个温馨的环境。</div>
+        <div class="post-images">
+            <img src="assets/scenes_video/花艺师/台湾_仪式_老人去世后一只仙鹤走入灵_000100.jpg" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_111_1', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">张</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">张馆长</span>
+                    <span class="post-badge">殡仪馆</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注张馆长')">+关注</div>
+        </div>
+        <div class="post-content">【重要通知】{通知内容}。如有疑问请致电{电话}。</div>
+        <div class="post-images">
+            <div class="post-img">🕯️</div><div class="post-img">🌸</div><div class="post-img">⚰️</div>
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_052_2', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">易</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">易明</span>
+                    <span class="post-badge">摄像师</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注易明')">+关注</div>
+        </div>
+        <div class="post-content">殡葬摄像需要注意{技术要点}。在尊重逝者的同时，记录珍贵的回忆。</div>
+        <div class="post-images">
+            <div class="post-img">🕯️</div><div class="post-img">🌸</div><div class="post-img">⚰️</div>
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_094_2', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">李</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">李刚</span>
+                    <span class="post-badge">乐队</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注李刚')">+关注</div>
+        </div>
+        <div class="post-content">刚刚结束一场告别仪式的演奏。今天演奏了《安魂曲》，每一个音符都是祝福。🎸</div>
+        <div class="post-images">
+            <img src="assets/scenes_video/乐队_歌手_舞蹈/Dr. John gets a second-line sendoff in the Treme. _30.jpg" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_007_2', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">孙</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">孙丽</span>
+                    <span class="post-badge">策划师</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注孙丽')">+关注</div>
+        </div>
+        <div class="post-content">从事策划工作5年，最大的感悟是：用专业和爱心陪伴每一个家庭。每一次服务，都是一次对生命的致敬。</div>
+        <div class="post-images">
+            <img src="assets/scenes_video/策划师/01_告别式实录_20250611 苗栗 廖昱傑告別_000030.jpg" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_115_1', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">陈</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">陈经理</span>
+                    <span class="post-badge">殡仪馆</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注陈经理')">+关注</div>
+        </div>
+        <div class="post-content">【行业资讯】{资讯内容}。关注殡葬行业发展，提升服务品质。</div>
+        <div class="post-images">
+            <img src="assets/scenes_video/入殓师_殡仪馆/台湾_仪式_婚車遇上出殯車，狹路相逢_30.jpg" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_012_1', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">黄</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">黄伟</span>
+                    <span class="post-badge">主持人</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注黄伟')">+关注</div>
+        </div>
+        <div class="post-content">分享一个小技巧：在守灵夜，要给家属留出情感释放的空间。给家属留出情感释放的空间，也是一种尊重。</div>
+        <div class="post-images">
+            <img src="assets/scenes_video/主持人/台湾_三清生命禮儀司儀 -小靈堂_000030.jpg" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_096_1', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">吴</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">吴涛</span>
+                    <span class="post-badge">乐队</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注吴涛')">+关注</div>
+        </div>
+        <div class="post-content">在告别仪式上演奏，生命的价值不在于长度，而在于厚度。用音乐抚慰悲伤的心灵。</div>
+        <div class="post-images">
+            <img src="assets/scenes_video/乐队_歌手_舞蹈/Dolores Marsalis jazz funeral procession [cnoBr7kx_30.jpg" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_027_2', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">魏</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">魏静</span>
+                    <span class="post-badge">礼仪师</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注魏静')">+关注</div>
+        </div>
+        <div class="post-content">礼仪服务中，细节要一丝不苟。细节决定品质，我们用心对待每一个环节。</div>
+        <div class="post-images">
+            <img src="assets/scenes_video/策划师_主持人_礼仪师/台湾_仪式_周府莊淑惠夫人追思告別紀_30.jpg" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_050_1', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">齐</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">齐涛</span>
+                    <span class="post-badge">花艺师</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注齐涛')">+关注</div>
+        </div>
+        <div class="post-content">今天做了一组白菊花艺，搭配绿叶，寓意生命轮回。每一朵花的位置都经过精心设计。🌸</div>
+        <div class="post-images">
+            <div class="post-img">🕯️</div><div class="post-img">🌸</div><div class="post-img">⚰️</div>
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_059_0', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">梁</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">梁敏</span>
+                    <span class="post-badge">摄像师</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注梁敏')">+关注</div>
+        </div>
+        <div class="post-content">殡葬摄像需要注意{技术要点}。在尊重逝者的同时，记录珍贵的回忆。</div>
+        <div class="post-images">
+            <div class="post-img">🕯️</div><div class="post-img">🌸</div><div class="post-img">⚰️</div>
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_090_1', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">黄</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">黄婷</span>
+                    <span class="post-badge">舞蹈</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注黄婷')">+关注</div>
+        </div>
+        <div class="post-content">创作这支舞蹈时，{创作理念}。希望通过舞蹈，给家属带来慰藉。</div>
+        <div class="post-images">
+            <div class="post-img">🕯️</div><div class="post-img">🌸</div><div class="post-img">⚰️</div>
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_048_1', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">万</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">万峰</span>
+                    <span class="post-badge">花艺师</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注万峰')">+关注</div>
+        </div>
+        <div class="post-content">今天做了一组康乃馨花艺，以白色为主色调，象征纯洁与永恒。每一朵花的位置都经过精心设计。🌸</div>
+        <div class="post-images">
+            <div class="post-img">🕯️</div><div class="post-img">🌸</div><div class="post-img">⚰️</div>
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_069_0', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">沈</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">沈娜</span>
+                    <span class="post-badge">摄影师</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注沈娜')">+关注</div>
+        </div>
+        <div class="post-content">为王爷爷拍摄了纪念照片。{工作内容}，希望这些照片能成为永恒的回忆。</div>
+        <div class="post-images">
+            <div class="post-img">🕯️</div><div class="post-img">🌸</div><div class="post-img">⚰️</div>
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_066_2', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">于</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">于强</span>
+                    <span class="post-badge">摄影师</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注于强')">+关注</div>
+        </div>
+        <div class="post-content">为张老先生拍摄了纪念照片。{工作内容}，希望这些照片能成为永恒的回忆。</div>
+        <div class="post-images">
+            <div class="post-img">🕯️</div><div class="post-img">🌸</div><div class="post-img">⚰️</div>
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_052_1', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">易</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">易明</span>
+                    <span class="post-badge">摄像师</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注易明')">+关注</div>
+        </div>
+        <div class="post-content">今天完成了{仪式类型}的影像记录。用影像记录珍贵的回忆，用镜头记录生命的最后时刻。🎥</div>
+        <div class="post-images">
+            <div class="post-img">🕯️</div><div class="post-img">🌸</div><div class="post-img">⚰️</div>
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_094_0', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">李</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">李刚</span>
+                    <span class="post-badge">乐队</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注李刚')">+关注</div>
+        </div>
+        <div class="post-content">乐队排练了新曲目《{曲名}》，{排练说明}。音乐的力量真的很神奇。</div>
+        <div class="post-images">
+            <div class="post-img">🕯️</div><div class="post-img">🌸</div><div class="post-img">⚰️</div>
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_021_2', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">曾</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">曾慧</span>
+                    <span class="post-badge">礼仪师</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注曾慧')">+关注</div>
+        </div>
+        <div class="post-content">作为礼仪师，生命的价值不在于长度，而在于厚度。用专业和温暖，陪伴每一个家庭度过艰难时刻。</div>
+        <div class="post-images">
+            <div class="post-img">🕯️</div><div class="post-img">🌸</div><div class="post-img">⚰️</div>
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_107_2', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">孙</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">孙道士</span>
+                    <span class="post-badge">法事</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注孙道士')">+关注</div>
+        </div>
+        <div class="post-content">分享一段{经文名}：{经文内容}。诵经回向，功德无量。</div>
+        <div class="post-images">
+            <div class="post-img">🕯️</div><div class="post-img">🌸</div><div class="post-img">⚰️</div>
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_099_0', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">李</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">李明</span>
+                    <span class="post-badge">乐队</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注李明')">+关注</div>
+        </div>
+        <div class="post-content">乐队排练了新曲目《{曲名}》，{排练说明}。音乐的力量真的很神奇。</div>
+        <div class="post-images">
+            <img src="assets/scenes_video/乐队_歌手_舞蹈/Dr. John gets a second-line sendoff in the Treme. _112.jpg" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_057_2', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">平</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">平丽</span>
+                    <span class="post-badge">摄像师</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注平丽')">+关注</div>
+        </div>
+        <div class="post-content">殡葬摄像需要注意{技术要点}。在尊重逝者的同时，记录珍贵的回忆。</div>
+        <div class="post-images">
+            <div class="post-img">🕯️</div><div class="post-img">🌸</div><div class="post-img">⚰️</div>
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_039_1', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">孔</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">孔敏</span>
+                    <span class="post-badge">入殓师</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注孔敏')">+关注</div>
+        </div>
+        <div class="post-content">今天完成了2位逝者的入殓服务。细心擦拭，一丝不苟，让逝者以最安详的样子离开。</div>
+        <div class="post-images">
+            <div class="post-img">🕯️</div><div class="post-img">🌸</div><div class="post-img">⚰️</div>
+        </div>
+    </div>
+
+    <div class="post-card" onclick="goToDetail('post_lj_120_0', 'unknown')">
+        <div class="post-header">
+            <div class="post-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">吴</div>
+            <div class="post-user">
+                <div class="post-name-row">
+                    <span class="post-name">吴馆长</span>
+                    <span class="post-badge">殡仪馆</span>
+                </div>
+                <div class="post-meta">3小时前 · 未知 · unknown</div>
+            </div>
+            <div class="follow-btn" onclick="event.stopPropagation(); alert('已关注吴馆长')">+关注</div>
+        </div>
+        <div class="post-content">【服务介绍】本馆提供专业的殡葬服务团队，价格透明，服务规范。欢迎咨询了解。</div>
+        <div class="post-images">
+            <div class="post-img">🕯️</div><div class="post-img">🌸</div><div class="post-img">⚰️</div>
+        </div>
+    </div>
+    </div>
+    <script>
+        function goToDetail(postId, authorId) {
+            console.log('查看帖子:', postId, '作者:', authorId);
+        }
+    </script>
+</body>
+</html>
