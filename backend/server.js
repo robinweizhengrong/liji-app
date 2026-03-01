@@ -14,11 +14,8 @@ app.use(morgan('dev'));
 
 // 路由
 app.use('/api/auth', require('./routes/auth'));
-app.use('/api/users', require('./routes/users'));
 app.use('/api/providers', require('./routes/providers'));
 app.use('/api/orders', require('./routes/orders'));
-app.use('/api/payments', require('./routes/payments'));
-app.use('/api/posts', require('./routes/posts'));
 
 // 健康检查
 app.get('/health', (req, res) => {
@@ -33,6 +30,7 @@ app.use((err, req, res, next) => {
 
 // 启动服务器
 app.listen(PORT, () => {
-    console.log(\`🚀 礼纪后端服务已启动`);  console.log(\`📍 http://localhost:\${PORT}\`);
-    console.log(\`📚 API文档: http://localhost:\${PORT}/api\`);
+    console.log('🚀 礼纪后端服务已启动');
+    console.log(`📍 http://localhost:${PORT}`);
+    console.log(`📚 API文档: http://localhost:${PORT}/api`);
 });
